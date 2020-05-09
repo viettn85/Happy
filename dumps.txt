@@ -1,0 +1,13 @@
+# Copy raw data
+cp CafeFCrawl/data/* VNStock/raw_data/
+
+Good expression: 300M 2k
+
+Rmove stocks: X77 MGC
+
+---
+df1.loc[df2.index[0]] = df2.iloc[0]
+df2.loc[0] = np.array([2, 3, 4])
+
+"XXX ABC.csv" -> "ABC.csv
+filename = f[f.rfind(' ') + 1:]
