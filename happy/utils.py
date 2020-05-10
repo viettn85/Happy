@@ -43,3 +43,11 @@ def selectStocks(year):
             df["Action"] = ""
             df.to_csv((SELECTED_STOCK_LOCATION + "{}").format(file))
     ic("Completed selecting stocks!")
+
+def getPrice(record, strategy):
+    if strategy == "OPEN":
+        return record.Open
+    elif strategy == "MEAN":
+        return round((record.Open + record.Close)/2)
+    else:
+        return record.Close

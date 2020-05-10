@@ -60,3 +60,27 @@ def isDownGreen(df, index, RATE):
         return False;
     c = df.iloc[index];
     return isBottomFull(c.High, c.Close, c.Open, c.Low, RATE)
+
+def isDoji(df, index):
+    if index >= len(df):
+        return False;
+    c = df.iloc[index];
+    return c.Open == c.Close
+
+def isBalancedDoji(df, index):
+    if index >= len(df):
+        return False;
+    c = df.iloc[index];
+    return (c.Open == c.Close) and abs(c.High - c.Open) == abs(c.Low - c.Open)
+
+def isUpDoji(df, index):
+    if index >= len(df):
+        return False;
+    c = df.iloc[index];
+    return (c.Open == c.Close) and (c.High == c.Open)
+
+def isDownDoji(df, index):
+    if index >= len(df):
+        return False;
+    c = df.iloc[index];
+    return (c.Open == c.Close) and (c.Low == c.Open)

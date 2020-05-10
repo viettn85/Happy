@@ -1,5 +1,5 @@
 from recommendation import categorizeCandle, recommendDaily
-from utils import getInvestingVolume, getTradeFee
+from utils import getInvestingVolume, getTradeFee, getPrice
 from common import readFile, getConfigParser
 import pandas as pd
 import functools
@@ -11,13 +11,15 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
             parser = getConfigParser()
             MAX_VOLUME = int(parser.get('happy', 'max_volume'))
             TRADE_RATE = float(parser.get('happy', 'trade_rate'))
+            TRADE_STRATEGY = parser.get('happy', 'trade_strategy')
             position = positions[0]
             df.Short.iloc[position] = df.iloc[position].Change < 1;
             df.Long.iloc[position] = df.iloc[position].Change >= 5;
             categorizeCandle(df, position);
             recommendDaily(df, position);
             if df.iloc[position].Action == "Buy" and (stock not in portfolio.index):
-                price = df.iloc[position].Open
+                # price = df.iloc[position].Open
+                price = getPrice(df.iloc[position], TRADE_STRATEGY);
                 stockVolume = getInvestingVolume(price, investingMoney, investingAmount, MAX_VOLUME)
                 if stockVolume > 0:
                     investingMoney = investingMoney + stockVolume * price;
@@ -42,7 +44,7 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
                     portfolio = portfolio.append(newStock)
                     print("Buy {} {} with price {} on {}".format(stockVolume, stock, price, str(date)[0:10]))
             if df.iloc[position].Action == "Sell" and (stock in portfolio.index):
-                price = df.iloc[position].Open
+                price = getPrice(df.iloc[position], TRADE_STRATEGY);
                 stockVolume = portfolio.loc[stock].Volume
                 investingMoney = investingMoney - stockVolume * price;
                 investingAmount = investingAmount + stockVolume * price  - getTradeFee(stockVolume * price, TRADE_RATE);
