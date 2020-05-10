@@ -103,10 +103,10 @@ def isOverProfit(df, position, stock, portfolio):
         overcomeProfitRate = float(parser.get('happy', 'over_profit_rate'))
         boughtPrice = portfolio.loc[stock].Price
         profitThreshold = boughtPrice * (1 + overcomeProfitRate);
-        ic("{} {} {} {}".format(boughtPrice, profitThreshold, c.Open, c.Close))
+        # ic("---isOverProfit {} {} {} {}".format(boughtPrice, profitThreshold, c.Open, c.Close))
         if  min(c.Open, c.Close) < profitThreshold and profitThreshold < max(c.Open, c.Close):
             return True;
-        if isDoji(df, position) and max(c.Open, c.Close) < profitThreshold:
+        if isDoji(df, position) and min(c.Open, c.Close) > profitThreshold:
             return True;
     return False;
 
@@ -117,9 +117,10 @@ def isCutLoss(df, position, stock, portfolio):
         cutLossRate = float(parser.get('happy', 'cut_loss_rate'))
         boughtPrice = portfolio.loc[stock].Price
         cutLossThreshold = boughtPrice * (1 - cutLossRate)
+        # ic("---isCutLoss {} {} {} {}".format(boughtPrice, cutLossThreshold, c.Open, c.Close))
         if min(c.Open, c.Close) < cutLossThreshold and cutLossThreshold < max(c.Open, c.Close):
             return True;
-        if isDoji(df, position) and min(c.Open, c.Close) > cutLossThreshold:
+        if isDoji(df, position) and max(c.Open, c.Close) < cutLossThreshold:
             return True;
 
     return False;

@@ -75,10 +75,12 @@ def recommendDaily(df, position, stock, portfolio):
         actions.append("Will Sell");
     # Sell when Overcome Profit or Cut Loss
     if isOverProfit(df, position, stock, portfolio):
-        ic("Over Profit")
+        # ic("Over Profit")
         recommendations.append("Overcome Profit")
         actions.append("Will Sell");
+    
     if isCutLoss(df, position, stock, portfolio):
+        # ic("Cut Loss---")
         recommendations.append("Cut Loss")
         actions.append("Will Sell");
     # END: Update recommendations for the current day
@@ -107,7 +109,7 @@ def recommendDaily(df, position, stock, portfolio):
             ic("Sold 3")
         elif ("Green" in p.Recommendation) and (not c.Short) and (c.Open > round((p.Close + p.Open)/2)) and (p.High < c.High):
             actions.append("Bought")
-            ic("{} {} {}".format(c.Open, p.Close, p.Open))
+            # ic("{} {} {}".format(c.Open, p.Close, p.Open))
             ic("Bought 1")
     if "FullGreenCode-I" in p.Recommendation:
         if isFullRed(df, position, RATE) or isUpRed(df, position, RATE): # FullRed or UpRed

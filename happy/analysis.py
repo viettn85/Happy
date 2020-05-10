@@ -4,10 +4,14 @@ from common import readFile, getConfigParser
 import pandas as pd
 import functools
 from icecream import ic
+from datetime import datetime
+
+
 def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investingAmount):
     if not df.loc[str(date)].empty:
         positions = df.index.get_loc(str(date))
         if len(positions) > 0 and positions[0] < len(df) - 1:
+            ic(date)
             parser = getConfigParser()
             MAX_VOLUME = int(parser.get('happy', 'max_volume'))
             TRADE_RATE = float(parser.get('happy', 'trade_rate'))
@@ -23,35 +27,41 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
             if (stock in portfolio.index) and "Sold" in df.iloc[position].Action:
                 p = df.iloc[position + 1]
                 stockVolume = portfolio.loc[stock].Volume
-                if "Cut Loss" in p.Recommendation:
-                    price = round(df.iloc[position].Close/2 + df.iloc[position].Open/2)
-                    ic("Sold as Cut Loss {}".format(date))
-                elif "Overcome Profit" in p.Recommendation:
-                    price = round(df.iloc[position].Close/2 + df.iloc[position].Open/2)
-                    ic("Sold as Overcome Profit {}".format(date))
-                else: 
-                    price = getPrice(df.iloc[position], TRADE_STRATEGY);
-                investingMoney = investingMoney - stockVolume * price;
-                investingAmount = investingAmount + stockVolume * price  - getTradeFee(stockVolume * price, TRADE_RATE);
-                profit = (price - portfolio.loc[stock].Price) * stockVolume
-                report = {
-                    "ID": [str(date)[0:10] + "-" + stock],
-                    "Date": [str(date)[0:10]],
-                    "Stock": [stock],
-                    "Action": ["Sell"],
-                    "Volume": [stockVolume],
-                    "Price": [price],
-                    "Value": [stockVolume * price],
-                    "Profit": [profit],
-                    "investingMoney": [investingMoney],
-                    "investingAmount": [investingAmount]
-                }
-                stockReportDf = pd.DataFrame.from_dict(report)
-                stockReportDf.set_index("ID", inplace=True)
-                dailyDf.append(stockReportDf)
-                # When allow multiple buys on one stock, the drop statement need to be updated: drop by ID instead of Stock
-                portfolio.drop(stock, inplace=True)
-                ic("Sold", stock, stockVolume, price, str(date)[0:10])
+                # currentDate = datetime.strptime(date, '%Y-%m-%d')
+                boughtDate = datetime.strptime(portfolio.loc[stock].Date, '%Y-%m-%d')
+                if (date - boughtDate).days < 3:
+                    ic("Waiting...{} {} {}".format(date, portfolio.loc[stock].Date, (date - boughtDate).days))
+                    df.Action.iloc[position] = df.Action.iloc[position] + "| Will Sell as Waiting for T3"
+                else:
+                    if "Cut Loss" in p.Recommendation:
+                        price = round(df.iloc[position].Close/2 + df.iloc[position].Open/2)
+                        ic("Sold as Cut Loss {}".format(date))
+                    elif "Overcome Profit" in p.Recommendation:
+                        price = round(df.iloc[position].Close/2 + df.iloc[position].Open/2)
+                        ic("Sold as Overcome Profit {}".format(date))
+                    else: 
+                        price = getPrice(df.iloc[position], TRADE_STRATEGY);
+                    investingMoney = investingMoney - stockVolume * price;
+                    investingAmount = investingAmount + stockVolume * price  - getTradeFee(stockVolume * price, TRADE_RATE);
+                    profit = (price - portfolio.loc[stock].Price) * stockVolume
+                    report = {
+                        "ID": [str(date)[0:10] + "-" + stock],
+                        "Date": [str(date)[0:10]],
+                        "Stock": [stock],
+                        "Action": ["Sell"],
+                        "Volume": [stockVolume],
+                        "Price": [price],
+                        "Value": [stockVolume * price],
+                        "Profit": [profit],
+                        "investingMoney": [investingMoney],
+                        "investingAmount": [investingAmount]
+                    }
+                    stockReportDf = pd.DataFrame.from_dict(report)
+                    stockReportDf.set_index("ID", inplace=True)
+                    dailyDf.append(stockReportDf)
+                    # When allow multiple buys on one stock, the drop statement need to be updated: drop by ID instead of Stock
+                    portfolio.drop(stock, inplace=True)
+                    ic("Sold", stock, stockVolume, price, str(date)[0:10])
             # Check stock existing on portfolio without Sold Recommendation:
             ## 1. Will SELL if overprofit
             ## 2. Will SELL if 

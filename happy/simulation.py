@@ -28,7 +28,7 @@ def simulateDaily():
         dailyDf = []
         # (dailyReports, dailyDf, portfolio, investingMoney, investingAmount) = analyzeAll(d, getCsvFiles(SELECTED_STOCK_LOCATION), dailyReports, dailyDf, portfolio, investingMoney, investingAmount);
         # stockList = ['MBG.csv','HDC.csv','DRC.csv','TNG.csv','SBT.csv','APG.csv','CII.csv','AAA.csv','DXG.csv','PDR.csv','DPM.csv']
-        stockList = ['TNG.csv']
+        stockList = ['CII.csv']
         (dailyReports, dailyDf, portfolio, investingMoney, investingAmount) = analyzeAll(d, stockList, dailyReports, dailyDf, portfolio, investingMoney, investingAmount);
 
 # preproceed(SOURCE_LOCATION, D3_DATA)
