@@ -23,7 +23,7 @@ totalMoney = 100000000
 
 def simulateDaily():
     investingMoney = 0
-    investingAmount = 500000000
+    investingAmount = int(parser.get('happy', 'investing_money'))
     for d in DATE_LIST:
         portfolio = pd.read_csv(REPORT_LOCATION + "portfolio.csv", index_col="Stock")
         dailyReports = pd.read_csv(REPORT_LOCATION + "reports.csv", index_col="ID")
@@ -36,5 +36,5 @@ def simulateDaily():
 # preproceed(SOURCE_LOCATION, D3_DATA)
 clearRecFolders()
 clearReports()
-# selectStocks(YEAR);
+selectStocks(YEAR);
 simulateDaily();

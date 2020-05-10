@@ -101,27 +101,27 @@ def recommendDaily(df, position, stock, portfolio):
     # if "DownDoji" in p.Recommendation:
     #     actions.append("Sold")
     if "Will Sell" in p.Action:
-        actions.append("Sold")
+        actions.append("Sold as bad signal from yesterday")
         # ic("Sold 1")
     if "UpGreenCode-I" in p.Recommendation:
         # if isFullRed(df, position, RATE) or isUpRed(df, position, RATE): # FullRed or UpRed
         if not (isFullGreen(df, position, RATE) or isDownGreen(df, position, RATE)): # Not FullGreen or DownGreen
-            actions.append("Sold");
+            actions.append("Sold as Not FullGreen or DownGreen");
             # ic("Sold 3")
         elif ("Green" in p.Recommendation) and (not c.Short) and (c.Open > round((p.Close + p.Open)/2)) and (p.High < c.High):
-            actions.append("Bought")
+            actions.append("Bought as Full Green or Down Green with good conditions")
             # ic("{} {} {}".format(c.Open, p.Close, p.Open))
             # ic("Bought 1")
     if "FullGreenCode-I" in p.Recommendation:
         # if isFullRed(df, position, RATE) or isUpRed(df, position, RATE): # FullRed or UpRed
         if not (isFullGreen(df, position, RATE) or isDownGreen(df, position, RATE)): # Not FullGreen or DownGreen
-            actions.append("Sold");
+            actions.append("Sold as Not FullGreen or DownGreen");
             # ic("Sold 2")
         else: 
             if c.Short:
                 recommendations.append("FullGreenCode-I")
             elif ("Green" in p.Recommendation) and (c.Open > round((p.Close + p.Open)/2)) and (p.High < c.High):
-                actions.append("Bought")
+                actions.append("Bought as Full Green or Down Green with good conditions")
                 # ic("Bought 2")
     df["Recommendation"][position] = "|".join(recommendations)
     # END: Recommend actions based on current day and previous day

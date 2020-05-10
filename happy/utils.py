@@ -35,14 +35,16 @@ def selectStocks(year):
     for file in csvFiles:
         df = readFile((SOURCE_LOCATION + "{}").format(file));
         df = df.loc[year]
-        ic("{} {} {} {} {} {} {}".format(len(df), NUMBER_OF_DAYS, df.Volume.mean(), MIN_VOLUME, df.Open.mean(), MIN_OPEN_PRICE, MAX_OPEN_PRICE))
+        # ic("{} {} {} {} {} {} {}".format(len(df), NUMBER_OF_DAYS, df.Volume.mean(), MIN_VOLUME, df.Open.mean(), MIN_OPEN_PRICE, MAX_OPEN_PRICE))
         if(len(df) > NUMBER_OF_DAYS) and df.Volume.mean() > MIN_VOLUME and (df.Open.mean() > MIN_OPEN_PRICE and df.Open.mean() < MAX_OPEN_PRICE):
             df["Short"] = False
             df["Long"] = False
             df["Categories"] = ""
             df["Recommendation"] = ""
             df["Action"] = ""
+            selected.append(file)
             df.to_csv((SELECTED_STOCK_LOCATION + "{}").format(file))
+    ic(selected)
     ic("Completed selecting stocks!")
 
 def getPrice(record, strategy):
