@@ -35,7 +35,7 @@ def isFullGreen(df, index, RATE):
     if index >= len(df):
         return False;
     c = df.iloc[index];
-    return isFull(c.High, c.Close, c.Open, c.Low, RATE)
+    return isFull(c.High, c.Close, c.Open, c.Low, RATE) and c.Change > 3;
 
 def isUpRed(df, index, RATE):
     if index >= len(df):
@@ -47,7 +47,7 @@ def isUpGreen(df, index, RATE):
     if index >= len(df):
         return False;
     c = df.iloc[index];
-    return isTopFull(c.High, c.Close, c.Open, c.Low, RATE)
+    return isTopFull(c.High, c.Close, c.Open, c.Low, RATE) and c.Change > 3;
 
 def isDownRed(df, index, RATE):
     if index >= len(df):
@@ -84,3 +84,10 @@ def isDownDoji(df, index):
         return False;
     c = df.iloc[index];
     return (c.Open == c.Close) and (c.Low == c.Open)
+
+def isInscreasingTrend(df, index): # If the current day's high and mean are higher that previous day's
+    if index >= len(df):
+        return False;
+    c = df.iloc[index];
+    p = df.iloc[index + 1]
+    return c.Close > p.Close and (c.Close + c.Open) > (p.Close + p.Open)

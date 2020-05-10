@@ -1,9 +1,9 @@
 from recommendation import categorizeCandle, recommendDaily
-from utils import getInvestingVolume, getTradeFee, getPrice
+from utils import getInvestingVolume, getTradeFee, getPrice, updateRec
 from common import readFile, getConfigParser
 import pandas as pd
 import functools
-
+from icecream import ic
 def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investingAmount):
     if not df.loc[str(date)].empty:
         positions = df.index.get_loc(str(date))
@@ -17,7 +17,9 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
             df.Long.iloc[position] = df.iloc[position].Change >= 5;
             categorizeCandle(df, position);
             recommendDaily(df, position);
-            if df.iloc[position].Action == "Buy" and (stock not in portfolio.index):
+            # ic(df.loc[[df.index[position]]])
+            updateRec(df.loc[[df.index[position]]], stock);
+            if "Bought" in df.iloc[position].Action and (stock not in portfolio.index):
                 # price = df.iloc[position].Open
                 price = getPrice(df.iloc[position], TRADE_STRATEGY);
                 stockVolume = getInvestingVolume(price, investingMoney, investingAmount, MAX_VOLUME)
@@ -42,8 +44,8 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
                     newStock = pd.DataFrame.from_dict({"Stock": [stock], "Price": [price], "Volume": [stockVolume], "Value": [stockVolume * price]})
                     newStock.set_index("Stock", inplace=True)
                     portfolio = portfolio.append(newStock)
-                    print("Buy {} {} with price {} on {}".format(stockVolume, stock, price, str(date)[0:10]))
-            if df.iloc[position].Action == "Sell" and (stock in portfolio.index):
+                    ic("Bought", stock, stockVolume, price, str(date)[0:10])
+            if "Sold" in df.iloc[position].Action and (stock in portfolio.index):
                 price = getPrice(df.iloc[position], TRADE_STRATEGY);
                 stockVolume = portfolio.loc[stock].Volume
                 investingMoney = investingMoney - stockVolume * price;
@@ -65,7 +67,7 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
                 stockReportDf.set_index("ID", inplace=True)
                 dailyDf.append(stockReportDf)
                 portfolio.drop(stock, inplace=True)
-                print("Sell {} {} with price {} and profit {} on {}".format(stockVolume, stock, price, profit, str(date)[0:10]))
+                ic("Sold", stock, stockVolume, price, str(date)[0:10])
     return (dailyDf, portfolio, investingMoney, investingAmount)
 
 def analyzeAll(date, files, dailyReports, dailyDf, portfolio, investingMoney, investingAmount):

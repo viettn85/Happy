@@ -33,46 +33,75 @@ def categorizeCandle(df, position):
         categories.append("Full Green");
     if isDownGreen(df, position, RATE):
         categories.append("Down Green");
+    if isDownDoji(df, position):
+        categories.append("Down Doji");
     df["Categories"][position] = "|".join(categories)
 
 
 def recommendDaily(df, position):
     recommendations = [];
+    actions = [];
     RATE = getRate()
     c = df.iloc[position];
     p = df.iloc[position + 1];
+    # START: Update recommendations for the current day
+    # FullGreenCode-I/UpGreenCode-I: Green codes with Increasing trends
+    # FullGreenCode-N/UpGreenCode-N: Normal Green codes
     if isLongGreen(df, position):
         recommendations.append("LongGreenCode")
-    if isFullGreen(df, position, RATE) and df.iloc[position].Change > 3:
-        recommendations.append("FullGreenCode")
+    if isFullGreen(df, position, RATE):
+        if isInscreasingTrend(df, position):
+            recommendations.append("FullGreenCode-I")
+            actions.append("Will Probably Buy")
+        else:
+            recommendations.append("FullGreenCode-N")
     if isFullRed(df, position, RATE):
         recommendations.append("FullRedCode")
-        recommendations.append("Sell");
-    if isUpGreen(df, position, RATE) and df.iloc[position].Change > 3:
-        recommendations.append("UpGreenCode")
+        actions.append("Will Sell");
+    if isUpGreen(df, position, RATE):
+        if isInscreasingTrend(df, position):
+            recommendations.append("UpGreenCode-I")
+            actions.append("Will Probably Buy")
+        else:
+            recommendations.append("FullGreenCode-N")
     if isDownRed(df, position, RATE):
         recommendations.append("DownRedCode")
-        recommendations.append("Sell");
-    if "UpGreenCode" in p.Recommendation:
-        if ("Red" not in c.Categories) and (not c.Short):
-            recommendations.append("Buy")
+        actions.append("Will Sell");
+    if isDownDoji(df, position):
+        recommendations.append("DownDoji")
+        actions.append("Will Sell");
+    # END: Update recommendations for the current day
+    
+    # START: Recommend actions based on current day and previous day
+    ## BUY is manual check based on current day price: 9 - 10 AM
+    ## 1. Current open price is higher that the mean price of the previous day
+    ## 2. Current day price has increased higher than the previous high price
+    #
+    ## SELL: maker sell order from the previous night with open price: 9 - 10 AM
+    ## 1. FullRed or DownRed Codes
+    ## 2. DownDoji
+    ## 3. Previous FullGreen and current FullRed or DownRed
     if "DownRedCode" in p.Recommendation:
-        recommendations.append("Sell")
-    if "FullGreenCode" in p.Recommendation:
-        if c.Open >= c.Close:
-            recommendations.append("Sell");
+        actions.append("Sold")
+    if "FullRedCode" in p.Recommendation:
+        actions.append("Sold")
+    if "DownDoji" in p.Recommendation:
+        actions.append("Sold")
+
+    if "UpGreenCode-I" in p.Recommendation:
+        if ("Green" in p.Recommendation) and (not c.Short) and (c.Open > round((p.Close + p.Open)/2)) and (p.High < c.High):
+            actions.append("Bought")
+    if "FullGreenCode-I" in p.Recommendation:
+        if c.Open >= c.Close: # FullRed or DownRed
+            actions.append("Sold");
         else: 
             if c.Short:
-                recommendations.append("FullGreenCode")
-            else:
-                recommendations.append("Buy")
-
-    if "FullRedCode" in p.Recommendation:
-        recommendations.append("Sell")
+                recommendations.append("FullGreenCode-I")
+            elif ("Green" in p.Recommendation) and (c.Open > round((p.Close + p.Open)/2)) and (p.High < c.High):
+                actions.append("Bought")
     df["Recommendation"][position] = "|".join(recommendations)
-    actions = []
-    if "Sell" in recommendations:
-        actions.append("Sell")
-    if "Buy" in recommendations:
-        actions.append("Buy")
+    # END: Recommend actions based on current day and previous day
+
+    # START: Set actions
     df.Action.iloc[position] = "|".join(actions)
+    # END: Set actions

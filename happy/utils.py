@@ -51,3 +51,22 @@ def getPrice(record, strategy):
         return round((record.Open + record.Close)/2)
     else:
         return record.Close
+
+def updateRec(dailyDf, stock):
+    parser = getConfigParser()
+    BASED_DIR = parser.get('happy', 'based_dir')
+    REC_FULL_LOCATION = BASED_DIR + parser.get('happy', 'rec_full_location')
+    REC_ACTIONS_LOCATION = BASED_DIR + parser.get('happy', 'rec_actions_location')
+    try:
+        # ic("Update rec file for ", stock)
+        df = readFile(REC_FULL_LOCATION + stock + "_rec.csv")
+        df.loc[dailyDf.index[0]] = dailyDf.iloc[0]
+        df.to_csv(REC_FULL_LOCATION + stock + "_rec.csv")
+        df = df[df.Action.isin(["Sold", "Bought"])];
+        df.to_csv(REC_ACTIONS_LOCATION + stock + "_rec_actions.csv")
+    except Exception as ex:
+        ic(ex)
+        # ic("Create rec file for ", stock)
+        dailyDf.to_csv(REC_FULL_LOCATION + stock + "_rec.csv")
+        dailyDf = dailyDf[dailyDf.Action.isin(["Sold", "Bought"])];
+        dailyDf.to_csv(REC_ACTIONS_LOCATION + stock + "_rec_actions.csv")

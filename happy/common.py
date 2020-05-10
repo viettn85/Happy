@@ -3,6 +3,8 @@ import pandas as pd
 from configparser import ConfigParser
 from icecream import ic
 import logging
+import sh
+import glob
 
 def getCsvFiles(location):
         try:
@@ -29,17 +31,6 @@ def getConfigParser():
     parser.read('happy.ini')
     return parser
 
-# Only for testing
-def clearFileContent(file):
-    df = readRawFile(file);
-    df.iloc[0:0].to_csv(file,index=None)
-def clearReports():
-    parser = getConfigParser()
-    BASED_DIR = parser.get('happy', 'based_dir')
-    REPORT_LOCATION = BASED_DIR + parser.get('happy', 'report_location')
-    clearFileContent(REPORT_LOCATION + "reports.csv")
-    clearFileContent(REPORT_LOCATION + "portfolio.csv")
-
 def preproceed(location, d3Data):
     logging.info("Started preproceeding process...")
     ic("Started preproceeding process...")
@@ -61,3 +52,29 @@ def preproceed(location, d3Data):
         df.to_csv(d3Data + f)
     logging.info("Completed preproceeding process...")
     ic("Completed preproceeding process...")
+
+# START: Only for testing
+def clearFileContent(file):
+    df = readRawFile(file);
+    df.iloc[0:0].to_csv(file,index=None)
+
+def clearReports():
+    parser = getConfigParser()
+    BASED_DIR = parser.get('happy', 'based_dir')
+    REPORT_LOCATION = BASED_DIR + parser.get('happy', 'report_location')
+    clearFileContent(REPORT_LOCATION + "reports.csv")
+    clearFileContent(REPORT_LOCATION + "portfolio.csv")
+
+def clearRecFolders():
+    parser = getConfigParser()
+    BASED_DIR = parser.get('happy', 'based_dir')
+    REC_FULL_LOCATION = BASED_DIR + parser.get('happy', 'rec_full_location')
+    REC_ACTIONS_LOCATION = BASED_DIR + parser.get('happy', 'rec_actions_location')
+    if len(getCsvFiles(REC_FULL_LOCATION)) > 0:
+        ic("Clean rec folder")
+        sh.rm(glob.glob(REC_FULL_LOCATION + "*"))
+    if len(getCsvFiles(REC_ACTIONS_LOCATION)) > 0:
+        ic("Clean rec_actions folder")
+        sh.rm(glob.glob(REC_ACTIONS_LOCATION + "*"))
+
+# END: Only for testing
