@@ -1,3 +1,6 @@
+from common import getConfigParser
+from icecream import ic
+
 def isRed(df, index):
     if index >= len(df):
         return False;
@@ -23,7 +26,7 @@ def isLongGreen(df, index):
     if index >= len(df):
         return False;
     c = df.iloc[index];
-    return c.Close > c.Open and c.Change >= 7
+    return c.Close > c.Open and c.Change >= 6.5
 
 def isFullRed(df, index, RATE):
     if index >= len(df):
@@ -91,3 +94,32 @@ def isInscreasingTrend(df, index): # If the current day's high and mean are high
     c = df.iloc[index];
     p = df.iloc[index + 1]
     return c.Close > p.Close and (c.Close + c.Open) > (p.Close + p.Open)
+
+def isOverProfit(df, position, stock, portfolio):
+    c = df.iloc[position]
+    if stock in portfolio.index:
+        
+        parser = getConfigParser()
+        overcomeProfitRate = float(parser.get('happy', 'over_profit_rate'))
+        boughtPrice = portfolio.loc[stock].Price
+        profitThreshold = boughtPrice * (1 + overcomeProfitRate);
+        ic("{} {} {} {}".format(boughtPrice, profitThreshold, c.Open, c.Close))
+        if  min(c.Open, c.Close) < profitThreshold and profitThreshold < max(c.Open, c.Close):
+            return True;
+        if isDoji(df, position) and max(c.Open, c.Close) < profitThreshold:
+            return True;
+    return False;
+
+def isCutLoss(df, position, stock, portfolio):
+    c = df.iloc[position]
+    if stock in portfolio.index:
+        parser = getConfigParser()
+        cutLossRate = float(parser.get('happy', 'cut_loss_rate'))
+        boughtPrice = portfolio.loc[stock].Price
+        cutLossThreshold = boughtPrice * (1 - cutLossRate)
+        if min(c.Open, c.Close) < cutLossThreshold and cutLossThreshold < max(c.Open, c.Close):
+            return True;
+        if isDoji(df, position) and min(c.Open, c.Close) > cutLossThreshold:
+            return True;
+
+    return False;

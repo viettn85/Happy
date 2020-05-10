@@ -16,9 +16,50 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
             df.Short.iloc[position] = df.iloc[position].Change < 1;
             df.Long.iloc[position] = df.iloc[position].Change >= 5;
             categorizeCandle(df, position);
-            recommendDaily(df, position);
+            recommendDaily(df, position, stock, portfolio);
             # ic(df.loc[[df.index[position]]])
             updateRec(df.loc[[df.index[position]]], stock);
+            # Sold the stock on portfolio
+            if (stock in portfolio.index) and "Sold" in df.iloc[position].Action:
+                p = df.iloc[position + 1]
+                stockVolume = portfolio.loc[stock].Volume
+                if "Cut Loss" in p.Recommendation:
+                    price = round(df.iloc[position].Close/2 + df.iloc[position].Open/2)
+                    ic("Sold as Cut Loss {}".format(date))
+                elif "Overcome Profit" in p.Recommendation:
+                    price = round(df.iloc[position].Close/2 + df.iloc[position].Open/2)
+                    ic("Sold as Overcome Profit {}".format(date))
+                else: 
+                    price = getPrice(df.iloc[position], TRADE_STRATEGY);
+                investingMoney = investingMoney - stockVolume * price;
+                investingAmount = investingAmount + stockVolume * price  - getTradeFee(stockVolume * price, TRADE_RATE);
+                profit = (price - portfolio.loc[stock].Price) * stockVolume
+                report = {
+                    "ID": [str(date)[0:10] + "-" + stock],
+                    "Date": [str(date)[0:10]],
+                    "Stock": [stock],
+                    "Action": ["Sell"],
+                    "Volume": [stockVolume],
+                    "Price": [price],
+                    "Value": [stockVolume * price],
+                    "Profit": [profit],
+                    "investingMoney": [investingMoney],
+                    "investingAmount": [investingAmount]
+                }
+                stockReportDf = pd.DataFrame.from_dict(report)
+                stockReportDf.set_index("ID", inplace=True)
+                dailyDf.append(stockReportDf)
+                # When allow multiple buys on one stock, the drop statement need to be updated: drop by ID instead of Stock
+                portfolio.drop(stock, inplace=True)
+                ic("Sold", stock, stockVolume, price, str(date)[0:10])
+            # Check stock existing on portfolio without Sold Recommendation:
+            ## 1. Will SELL if overprofit
+            ## 2. Will SELL if 
+            if (stock in portfolio.index) and ("Sold" not in df.iloc[position].Action):
+                if "Cut Loss" in df.iloc[position].Action:
+                    ic("Sell as Cut Loss")
+                if "Overcome Profit" in df.iloc[position].Action:
+                    ic("Sell as Overcome Profit")
             if "Bought" in df.iloc[position].Action and (stock not in portfolio.index):
                 # price = df.iloc[position].Open
                 price = getPrice(df.iloc[position], TRADE_STRATEGY);
@@ -41,33 +82,18 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
                     stockReportDf = pd.DataFrame.from_dict(report)
                     stockReportDf.set_index("ID", inplace=True)
                     dailyDf.append(stockReportDf)
-                    newStock = pd.DataFrame.from_dict({"Stock": [stock], "Price": [price], "Volume": [stockVolume], "Value": [stockVolume * price]})
+                    newStock = pd.DataFrame.from_dict({
+                        "ID": [str(date)[0:10] + "-" + stock],
+                        "Date":[str(date)[0:10]], 
+                        "Stock": [stock], 
+                        "Price": [price], 
+                        "Volume": [stockVolume], 
+                        "Value": [stockVolume * price]
+                    })
                     newStock.set_index("Stock", inplace=True)
                     portfolio = portfolio.append(newStock)
                     ic("Bought", stock, stockVolume, price, str(date)[0:10])
-            if "Sold" in df.iloc[position].Action and (stock in portfolio.index):
-                price = getPrice(df.iloc[position], TRADE_STRATEGY);
-                stockVolume = portfolio.loc[stock].Volume
-                investingMoney = investingMoney - stockVolume * price;
-                investingAmount = investingAmount + stockVolume * price  - getTradeFee(stockVolume * price, TRADE_RATE);
-                profit = (price - portfolio.loc[stock].Price) * stockVolume
-                report = {
-                    "ID": [str(date)[0:10] + "-" + stock],
-                    "Date": [str(date)[0:10]],
-                    "Stock": [stock],
-                    "Action": ["Sell"],
-                    "Volume": [stockVolume],
-                    "Price": [price],
-                    "Value": [stockVolume * price],
-                    "Profit": [profit],
-                    "investingMoney": [investingMoney],
-                    "investingAmount": [investingAmount]
-                }
-                stockReportDf = pd.DataFrame.from_dict(report)
-                stockReportDf.set_index("ID", inplace=True)
-                dailyDf.append(stockReportDf)
-                portfolio.drop(stock, inplace=True)
-                ic("Sold", stock, stockVolume, price, str(date)[0:10])
+            
     return (dailyDf, portfolio, investingMoney, investingAmount)
 
 def analyzeAll(date, files, dailyReports, dailyDf, portfolio, investingMoney, investingAmount):

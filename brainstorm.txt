@@ -1,0 +1,15 @@
+Doji: close = open
+Balanced Doji: mean(high + low) = mean(close+open)
+UpDoji: high = close = open, low < min (close, open)
+DownDoju: close = open = low, high > max(close, open)
+
+Balanced Doji: Keep current trend
+
+Up Doji: 
+    P Green: Keep increasing
+    P Red: Nothing
+Down Doji: Decreasing
+
+Full Green or UpGreen:
+    C.Open < P.mean -> Not buy
+    C in progress > P.Close: Buy (Always check after 9.15)
