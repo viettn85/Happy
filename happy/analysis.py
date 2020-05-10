@@ -11,7 +11,7 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
     if not df.loc[str(date)].empty:
         positions = df.index.get_loc(str(date))
         if len(positions) > 0 and positions[0] < len(df) - 1:
-            ic(date)
+            # ic(date)
             parser = getConfigParser()
             MAX_VOLUME = int(parser.get('happy', 'max_volume'))
             TRADE_RATE = float(parser.get('happy', 'trade_rate'))
@@ -107,11 +107,11 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
     return (dailyDf, portfolio, investingMoney, investingAmount)
 
 def analyzeAll(date, files, dailyReports, dailyDf, portfolio, investingMoney, investingAmount):
-    for file in files:
-        parser = getConfigParser()
-        BASED_DIR = parser.get('happy', 'based_dir')
-        SELECTED_STOCK_LOCATION = BASED_DIR + parser.get('happy', 'selected_stock_location')
-        REPORT_LOCATION = BASED_DIR + parser.get('happy', 'report_location')
+    parser = getConfigParser()
+    BASED_DIR = parser.get('happy', 'based_dir')
+    SELECTED_STOCK_LOCATION = BASED_DIR + parser.get('happy', 'selected_stock_location')
+    REPORT_LOCATION = BASED_DIR + parser.get('happy', 'report_location')
+    for file in files:    
         df = readFile((SELECTED_STOCK_LOCATION + "{}").format(file));
         df['Action'] = df.Action.astype(str)
         df['Categories'] = df.Categories.astype(str)
