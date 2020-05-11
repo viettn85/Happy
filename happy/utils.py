@@ -5,12 +5,10 @@ import glob
 from common import getCsvFiles, readRawFile, readFile, getConfigParser
 
 def getInvestingVolume(price, investingAmount, maxStock):
-    if(investingAmount) < 10000000:
-        return 0;
     stockVolume = round(investingAmount/price);
     if stockVolume > maxStock:
         stockVolume = maxStock
-    stockVolume -= stockVolume % -50
+    stockVolume -= stockVolume % 50
     return stockVolume;
 
 def getTradeFee(value, tradeRate):
