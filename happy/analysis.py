@@ -1,4 +1,4 @@
-from recommendation import categorizeCandle, recommendDaily
+from recommendation import categorizeCandle, defineDailyAction, recommendStock
 from utils import getInvestingVolume, getTradeFee, getPrice, updateRec
 from common import readFile, getConfigParser
 import pandas as pd
@@ -7,7 +7,7 @@ from icecream import ic
 from datetime import datetime
 
 
-def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investingAmount):
+def analyzePattern(df, date, stock, dailyTrades, portfolio, investingAmount):
     if not df.loc[str(date)].empty:
         positions = df.index.get_loc(str(date))
         if len(positions) > 0 and positions[0] < len(df) - 1:
@@ -20,7 +20,7 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
             df.Short.iloc[position] = df.iloc[position].Change < 1;
             df.Long.iloc[position] = df.iloc[position].Change >= 5;
             categorizeCandle(df, position);
-            recommendDaily(df, position, stock, portfolio);
+            defineDailyAction(df, position, stock, portfolio);
             # ic(df.loc[[df.index[position]]])
             updateRec(df.loc[[df.index[position]]], stock);
             # Sold the stock on portfolio
@@ -41,8 +41,8 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
                         ic("Sold as Overcome Profit {}".format(date))
                     else: 
                         price = getPrice(df.iloc[position], TRADE_STRATEGY);
-                    investingMoney = investingMoney - stockVolume * price;
-                    investingAmount = investingAmount + stockVolume * price  - getTradeFee(stockVolume * price, TRADE_RATE);
+                    tradeFee = getTradeFee(stockVolume * price, TRADE_RATE)
+                    investingAmount = investingAmount + stockVolume * price  - tradeFee;
                     profit = (price - portfolio.loc[stock].Price) * stockVolume
                     report = {
                         "ID": [str(date)[0:10] + "-" + stock],
@@ -53,12 +53,12 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
                         "Price": [price],
                         "Value": [stockVolume * price],
                         "Profit": [profit],
-                        "investingMoney": [investingMoney],
-                        "investingAmount": [investingAmount]
+                        "TradeFee": [tradeFee],
+                        "InvestingAmount": [investingAmount]
                     }
                     stockReportDf = pd.DataFrame.from_dict(report)
                     stockReportDf.set_index("ID", inplace=True)
-                    dailyDf.append(stockReportDf)
+                    dailyTrades.append(stockReportDf)
                     # When allow multiple buys on one stock, the drop statement need to be updated: drop by ID instead of Stock
                     portfolio.drop(stock, inplace=True)
                     ic("Sold", stock, stockVolume, price, str(date)[0:10])
@@ -73,10 +73,10 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
             if "Bought" in df.iloc[position].Action and (stock not in portfolio.index):
                 # price = df.iloc[position].Open
                 price = getPrice(df.iloc[position], TRADE_STRATEGY);
-                stockVolume = getInvestingVolume(price, investingMoney, investingAmount, MAX_VOLUME)
+                stockVolume = getInvestingVolume(price, investingAmount, MAX_VOLUME)
                 if stockVolume > 0:
-                    investingMoney = investingMoney + stockVolume * price;
-                    investingAmount = investingAmount - stockVolume * price - getTradeFee(stockVolume * price, TRADE_RATE);
+                    tradeFee = getTradeFee(stockVolume * price, TRADE_RATE)
+                    investingAmount = investingAmount - stockVolume * price - tradeFee;
                     report = {
                         "ID": [str(date)[0:10] + "-" + stock],
                         "Date": [str(date)[0:10]],
@@ -86,12 +86,12 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
                         "Price": [price],
                         "Value": [stockVolume * price],
                         "Profit": [0],
-                        "investingMoney": [investingMoney],
-                        "investingAmount": [investingAmount]
+                        "TradeFee": [tradeFee],
+                        "InvestingAmount": [investingAmount]
                     }
                     stockReportDf = pd.DataFrame.from_dict(report)
                     stockReportDf.set_index("ID", inplace=True)
-                    dailyDf.append(stockReportDf)
+                    dailyTrades.append(stockReportDf)
                     newStock = pd.DataFrame.from_dict({
                         "ID": [str(date)[0:10] + "-" + stock],
                         "Date":[str(date)[0:10]], 
@@ -104,23 +104,49 @@ def analyzePattern(df, date, stock, dailyDf, portfolio, investingMoney, investin
                     portfolio = portfolio.append(newStock)
                     ic("Bought", stock, stockVolume, price, str(date)[0:10])
             
-    return (dailyDf, portfolio, investingMoney, investingAmount)
+    return (dailyTrades, portfolio, investingAmount)
 
-def analyzeAll(date, files, dailyReports, dailyDf, portfolio, investingMoney, investingAmount):
+def analyzeAll(date, files, portfolio, investingAmount):
+    dailyTrades = []
     parser = getConfigParser()
     BASED_DIR = parser.get('happy', 'based_dir')
     SELECTED_STOCK_LOCATION = BASED_DIR + parser.get('happy', 'selected_stock_location')
     REPORT_LOCATION = BASED_DIR + parser.get('happy', 'report_location')
+    stocksToSell = []
+    stocksToBuyNew = []
+    stocksToBuyMore = []
     for file in files:    
         df = readFile((SELECTED_STOCK_LOCATION + "{}").format(file));
+        stock = file[0:3]
         df['Action'] = df.Action.astype(str)
-        df['Categories'] = df.Categories.astype(str)
+        df['Category'] = df.Category.astype(str)
         df['Recommendation'] = df.Recommendation.astype(str)
-        (dailyDf, portfolio, investingMoney, investingAmount) = analyzePattern(df, date, file[0:3], dailyDf, portfolio, investingMoney, investingAmount)
+        (dailyTrades, portfolio, investingAmount) = analyzePattern(df, date, stock, dailyTrades, portfolio, investingAmount)
         df.to_csv(SELECTED_STOCK_LOCATION + "{}".format(file))
-    if len(dailyDf) > 0:
-        finalDf = functools.reduce(lambda a,b : a.append(b),dailyDf)
+        positions = df.index.get_loc(str(date))
+        if len(positions) > 0:
+            if recommendStock(df, positions[0]) == 'Sell' and stock in portfolio.index:
+                stocksToSell.append(stock)
+            if recommendStock(df, positions[0]) == 'Buy' and stock in portfolio.index:
+                stocksToBuyMore.append(stock)
+            if recommendStock(df, positions[0]) == 'Buy' and stock not in portfolio.index:
+                stocksToBuyNew.append(stock)
+
+    currentRecReport = pd.read_csv(REPORT_LOCATION + "stock_rec_report.csv", index_col="Date")
+    recReport = pd.DataFrame.from_dict({
+        "Date": [str(date)[0:10]],
+        "Sell": ["|".join(stocksToSell)],
+        "BuyNew": ["|".join(stocksToBuyNew)],
+        "BuyMore": ["|".join(stocksToBuyMore)]  
+    })
+    recReport.set_index("Date", inplace=True)
+    ic(recReport)
+    currentRecReport = currentRecReport.append(recReport)
+    currentRecReport.to_csv(REPORT_LOCATION + "stock_rec_report.csv", index=True)
+    if len(dailyTrades) > 0:
+        finalDf = functools.reduce(lambda a,b : a.append(b),dailyTrades)
+        dailyReports = pd.read_csv(REPORT_LOCATION + "trade_report.csv", index_col="ID")
         dailyReports = dailyReports.append(finalDf)
-        dailyReports.to_csv(REPORT_LOCATION + "reports.csv", index=True)
+        dailyReports.to_csv(REPORT_LOCATION + "trade_report.csv", index=True)
     portfolio.to_csv(REPORT_LOCATION + "portfolio.csv",index=True)
-    return (dailyReports, dailyDf, portfolio, investingMoney, investingAmount)
+    return (portfolio, investingAmount)

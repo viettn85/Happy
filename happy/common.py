@@ -62,7 +62,8 @@ def clearReports():
     parser = getConfigParser()
     BASED_DIR = parser.get('happy', 'based_dir')
     REPORT_LOCATION = BASED_DIR + parser.get('happy', 'report_location')
-    clearFileContent(REPORT_LOCATION + "reports.csv")
+    clearFileContent(REPORT_LOCATION + "trade_report.csv")
+    clearFileContent(REPORT_LOCATION + "stock_rec_report.csv")
     clearFileContent(REPORT_LOCATION + "portfolio.csv")
 
 def clearRecFolders():

@@ -4,10 +4,10 @@ import sh
 import glob
 from common import getCsvFiles, readRawFile, readFile, getConfigParser
 
-def getInvestingVolume(price, investingMoney, investingAmount, maxStock):
-    if(investingAmount - investingMoney) < 10000000:
+def getInvestingVolume(price, investingAmount, maxStock):
+    if(investingAmount) < 10000000:
         return 0;
-    stockVolume = round((investingAmount - investingMoney)/price);
+    stockVolume = round(investingAmount/price);
     if stockVolume > maxStock:
         stockVolume = maxStock
     stockVolume -= stockVolume % -50
@@ -39,7 +39,7 @@ def selectStocks(year):
         if(len(df) > NUMBER_OF_DAYS) and df.Volume.mean() > MIN_VOLUME and (df.Open.mean() > MIN_OPEN_PRICE and df.Open.mean() < MAX_OPEN_PRICE):
             df["Short"] = False
             df["Long"] = False
-            df["Categories"] = ""
+            df["Category"] = ""
             df["Recommendation"] = ""
             df["Action"] = ""
             selected.append(file)
@@ -55,7 +55,7 @@ def getPrice(record, strategy):
     else:
         return record.Close
 
-def updateRec(dailyDf, stock):
+def updateRec(dailyTrades, stock):
     parser = getConfigParser()
     BASED_DIR = parser.get('happy', 'based_dir')
     REC_FULL_LOCATION = BASED_DIR + parser.get('happy', 'rec_full_location')
@@ -63,13 +63,13 @@ def updateRec(dailyDf, stock):
     try:
         # ic("Update rec file for ", stock)
         df = readFile(REC_FULL_LOCATION + stock + "_rec.csv")
-        df.loc[dailyDf.index[0]] = dailyDf.iloc[0]
+        df.loc[dailyTrades.index[0]] = dailyTrades.iloc[0]
         df.to_csv(REC_FULL_LOCATION + stock + "_rec.csv")
         df = df[df.Action.isin(["Sold", "Bought"])];
         df.to_csv(REC_ACTIONS_LOCATION + stock + "_rec_actions.csv")
     except Exception as ex:
         ic(ex)
         # ic("Create rec file for ", stock)
-        dailyDf.to_csv(REC_FULL_LOCATION + stock + "_rec.csv")
-        dailyDf = dailyDf[dailyDf.Action.isin(["Sold", "Bought"])];
-        dailyDf.to_csv(REC_ACTIONS_LOCATION + stock + "_rec_actions.csv")
+        dailyTrades.to_csv(REC_FULL_LOCATION + stock + "_rec.csv")
+        dailyTrades = dailyTrades[dailyTrades.Action.isin(["Sold", "Bought"])];
+        dailyTrades.to_csv(REC_ACTIONS_LOCATION + stock + "_rec_actions.csv")

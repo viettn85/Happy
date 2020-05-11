@@ -22,16 +22,13 @@ DATE_LIST = pd.date_range(start=parser.get('happy', 'start_date'),end=parser.get
 totalMoney = 100000000
 
 def simulateDaily():
-    investingMoney = 0
     investingAmount = int(parser.get('happy', 'investing_money'))
-    for d in DATE_LIST:
+    for date in DATE_LIST:
         portfolio = pd.read_csv(REPORT_LOCATION + "portfolio.csv", index_col="Stock")
-        dailyReports = pd.read_csv(REPORT_LOCATION + "reports.csv", index_col="ID")
-        dailyDf = []
-        (dailyReports, dailyDf, portfolio, investingMoney, investingAmount) = analyzeAll(d, getCsvFiles(SELECTED_STOCK_LOCATION), dailyReports, dailyDf, portfolio, investingMoney, investingAmount);
+        (portfolio, investingAmount) = analyzeAll(date, getCsvFiles(SELECTED_STOCK_LOCATION), portfolio, investingAmount);
         # stockList = ['MBG.csv','HDC.csv','DRC.csv','TNG.csv','SBT.csv','APG.csv','CII.csv','AAA.csv','DXG.csv','PDR.csv','DPM.csv']
-        # stockList = ['CII.csv']
-        # (dailyReports, dailyDf, portfolio, investingMoney, investingAmount) = analyzeAll(d, stockList, dailyReports, dailyDf, portfolio, investingMoney, investingAmount);
+        # stockList = ['BID.csv']
+        # (portfolio, investingAmount) = analyzeAll(date, stockList, portfolio, investingAmount);
 
 # preproceed(SOURCE_LOCATION, D3_DATA)
 clearRecFolders()

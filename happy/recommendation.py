@@ -10,35 +10,42 @@ def getRate():
 
 
 def categorizeCandle(df, position):
-    categories = []
     RATE = getRate()
-    if df.iloc[position].Short:
-        df["Categories"][position] = "Short"
-        return
-    if df.iloc[position].Long:
-        categories.append("Long");
-    if isRed(df, position):
-        categories.append("Red");
-    if isUpRed(df, position, RATE):
-        categories.append("Up Red");
-    if isFullRed(df, position, RATE):
-        categories.append("Full Red");
-    if isDownRed(df, position, RATE):
-        categories.append("Down Red");
+    category = ""
     if isGreen(df, position):
-        categories.append("Green");
-    if isUpGreen(df, position, RATE):
-        categories.append("Up Green");
-    if isFullGreen(df, position, RATE):
-        categories.append("Full Green");
-    if isDownGreen(df, position, RATE):
-        categories.append("Down Green");
-    if isDownDoji(df, position):
-        categories.append("Down Doji");
-    df["Categories"][position] = "|".join(categories)
+        if isFullGreen(df, position, RATE):
+            category = "Full Green"
+        elif isUpGreen(df, position, RATE):
+            category = "Up Green"
+        elif isDownGreen(df, position, RATE):
+            category = "Down Green"
+        elif df.iloc[position].Short:
+            category = "Short Green"
+        else:
+            category = "Green"
+    elif isRed(df, position):
+        if isFullRed(df, position, RATE):
+            category = "Full Red"
+        elif isUpRed(df, position, RATE):
+            category = "Up Red"
+        elif isDownRed(df, position, RATE):
+            category = "Down Red"
+        elif df.iloc[position].Short:
+            category = "Short Red"
+        else:
+            category = "Red"
+    else:
+        if isBalancedDoji(df, position):
+            category = "Balanced Doji"
+        elif isUpDoji(df, position):
+            category = "Up Doji"
+        elif isDownDoji(df, position):
+            category = "Down Doji"
+        else:
+            category = "Doji"
+    df.Category.iloc[position] = category
 
-
-def recommendDaily(df, position, stock, portfolio):
+def defineDailyAction(df, position, stock, portfolio):
     recommendations = [];
     actions = [];
     RATE = getRate()
@@ -129,3 +136,11 @@ def recommendDaily(df, position, stock, portfolio):
     # START: Set actions
     df.Action.iloc[position] = "|".join(actions)
     # END: Set actions
+
+def recommendStock(df, position):
+    if "Will Sell" in df.Action.iloc[position]:
+        return "Sell"
+    if "Will Probably Buy" in df.Action.iloc[position]:
+        return "Buy"
+    return ""
+    
