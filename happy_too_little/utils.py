@@ -3,6 +3,8 @@ import logging
 import sh
 import glob
 from common import getCsvFiles, readRawFile, readFile, getConfigParser
+import pandas as pd
+from datetime import timedelta
 
 def getInvestingVolume(price, investingAmount, maxStock):
     stockVolume = round(investingAmount/price)
@@ -71,3 +73,16 @@ def updateRec(dailyTrades, stock):
         dailyTrades.to_csv(REC_FULL_LOCATION + stock + "_rec.csv")
         dailyTrades = dailyTrades[dailyTrades.Action.isin(["Sold", "Bought"])]
         dailyTrades.to_csv(REC_ACTIONS_LOCATION + stock + "_rec_actions.csv")
+
+def isNotAllowToBuy(stock, date):
+    # Check if bought in 10 days ago
+    parser = getConfigParser()
+    BASED_DIR = parser.get('happy', 'based_dir')
+    REPORT_LOCATION = BASED_DIR + parser.get('happy', 'report_location')
+    dailyReports = pd.read_csv(REPORT_LOCATION + "trade_report.csv", index_col="ID")
+    stockReport = dailyReports[dailyReports.Stock == stock]
+    if len(stockReport) > 0:
+        stockReport.sort_values(by=['Date'], inplace=True)
+        if stockReport.iloc[-1].Action == "Sell":
+            return str(date + timedelta(-10))[0:10] <= stockReport.iloc[-1].Date
+    return False

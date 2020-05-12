@@ -25,10 +25,10 @@ def simulateDaily():
     investingAmount = int(parser.get('happy', 'investing_money'))
     for date in DATE_LIST:
         portfolio = pd.read_csv(REPORT_LOCATION + "portfolio.csv", index_col="Stock")
-        (portfolio, investingAmount) = analyzeAll(date, getCsvFiles(SELECTED_STOCK_LOCATION), portfolio, investingAmount)
+        # (portfolio, investingAmount) = analyzeAll(date, getCsvFiles(SELECTED_STOCK_LOCATION), portfolio, investingAmount)
         # stockList = ['MBG.csv','HDC.csv','DRC.csv','TNG.csv','SBT.csv','APG.csv','CII.csv','AAA.csv','DXG.csv','PDR.csv','DPM.csv']
-        # stockList = ['BID.csv']
-        # (portfolio, investingAmount) = analyzeAll(date, stockList, portfolio, investingAmount)
+        stockList = ['IDJ.csv']
+        (portfolio, investingAmount) = analyzeAll(date, stockList, portfolio, investingAmount)
 
 def showResults():
     dailyReports = pd.read_csv(REPORT_LOCATION + "trade_report.csv", index_col="ID")
@@ -36,9 +36,10 @@ def showResults():
     total = dailyReports.iloc[-1].InvestingAmount + portfolio.Value.sum()
     ic(total)
 
-preproceed(SOURCE_LOCATION, D3_DATA)
+
+# preproceed(SOURCE_LOCATION, D3_DATA)
 clearRecFolders()
 clearReports()
-selectStocks(YEAR)
+# selectStocks(YEAR)
 simulateDaily()
 showResults()

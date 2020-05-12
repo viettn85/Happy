@@ -31,6 +31,14 @@ def getConfigParser():
     parser.read('happy.ini')
     return parser
 
+def calculateMAs(df):
+    df['MA3'] = df.Close.rolling(3).mean()
+    df['MA8'] = df.Close.rolling(5).mean()
+    df['MA20'] = df.Close.rolling(20).mean()
+    df['MA3_8'] = df.MA8 - df.MA3
+    df['MA3_20'] = df.MA20 - df.MA3
+    df['MA8_20'] = df.MA20 - df.MA8
+
 def preproceed(location, d3Data):
     logging.info("Started preproceeding process...")
     ic("Started preproceeding process...")
@@ -44,9 +52,11 @@ def preproceed(location, d3Data):
             continue
         df['Date'] = pd.to_datetime(df['Date'])
         df.set_index("Date", inplace=True)
+        df.sort_index(ascending=True, inplace=True)
+        calculateMAs(df)
         df.sort_index(ascending=False, inplace=True)
         df["Change"] = round(abs(df.Close - df.Open)/df.Open * 100, 2)
-        df = df[["Close", "Open", "High", "Low", "Change", "Volume"]]
+        df = df[["Close", "Open", "High", "Low", "Change", "Volume", "MA3", "MA8", "MA20", "MA3_8", "MA3_20", "MA8_20"]]
         df.to_csv(location + f)
         df.sort_index(ascending=True, inplace=True)
         df.to_csv(d3Data + f)

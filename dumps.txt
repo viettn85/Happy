@@ -16,3 +16,6 @@ filename = f[f.rfind(' ') + 1:]
 git rm --cached happy.ini 
 
 TCH: 3/3
+
+CLOSE: 27499820.0
+MEAN: 29534615.0

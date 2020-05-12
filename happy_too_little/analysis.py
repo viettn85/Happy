@@ -1,5 +1,5 @@
 from recommendation import categorizeCandle, defineDailyAction, recommendStock
-from utils import getInvestingVolume, getTradeFee, getPrice, updateRec
+from utils import getInvestingVolume, getTradeFee, getPrice, updateRec, isNotAllowToBuy
 from common import readFile, getConfigParser
 import pandas as pd
 import functools
@@ -115,15 +115,21 @@ def analyzeAll(date, files, portfolio, investingAmount):
     stocksToSell = []
     stocksToBuyNew = []
     stocksToBuyMore = []
-    for file in files:    
-        df = readFile((SELECTED_STOCK_LOCATION + "{}").format(file))
+    for file in files:
         stock = file[0:3]
+        df = readFile((SELECTED_STOCK_LOCATION + "{}").format(file))
         df['Action'] = df.Action.astype(str)
         df['Category'] = df.Category.astype(str)
         df['Recommendation'] = df.Recommendation.astype(str)
-        (dailyTrades, portfolio, investingAmount) = analyzePattern(df, date, stock, dailyTrades, portfolio, investingAmount)
-        df.to_csv(SELECTED_STOCK_LOCATION + "{}".format(file))
         positions = df.index.get_loc(str(date))
+        if isNotAllowToBuy(stock, date):
+            if len(positions) > 0:
+                ic("Not Allow To trade")
+                df.Action.iloc[positions[0]] = "Relax"
+                df.Recommendation.iloc[positions[0]] = "Not Trade Today"
+        else:
+            (dailyTrades, portfolio, investingAmount) = analyzePattern(df, date, stock, dailyTrades, portfolio, investingAmount)
+        df.to_csv(SELECTED_STOCK_LOCATION + "{}".format(file))
         if len(positions) > 0:
             if recommendStock(df, positions[0]) == 'Sell' and stock in portfolio.index:
                 stocksToSell.append(stock)

@@ -1,4 +1,4 @@
-from recommendation import categorizeCandle, defineDailyAction, recommendStock
+from recommendation import categorizeCandle, defineDailyAction, recommendStock, defineDailyActionWithMA
 from utils import getInvestingVolume, getTradeFee, getPrice, updateRec
 from common import readFile, getConfigParser
 import pandas as pd
@@ -20,7 +20,7 @@ def analyzePattern(df, date, stock, dailyTrades, portfolio, investingAmount):
             df.Short.iloc[position] = df.iloc[position].Change < 1
             df.Long.iloc[position] = df.iloc[position].Change >= 5
             categorizeCandle(df, position)
-            defineDailyAction(df, position, stock, portfolio)
+            defineDailyActionWithMA(df, position, stock, portfolio)
             # ic(df.loc[[df.index[position]]])
             updateRec(df.loc[[df.index[position]]], stock)
             # Sold the stock on portfolio
@@ -150,3 +150,4 @@ def analyzeAll(date, files, portfolio, investingAmount):
         dailyReports.to_csv(REPORT_LOCATION + "trade_report.csv", index=True)
     portfolio.to_csv(REPORT_LOCATION + "portfolio.csv",index=True)
     return (portfolio, investingAmount)
+

@@ -3,6 +3,8 @@ import logging
 import sh
 import glob
 from common import getCsvFiles, readRawFile, readFile, getConfigParser
+from datetime import timedelta
+import pd
 
 def getInvestingVolume(price, investingAmount, maxStock):
     stockVolume = round(investingAmount/price)
@@ -71,3 +73,7 @@ def updateRec(dailyTrades, stock):
         dailyTrades.to_csv(REC_FULL_LOCATION + stock + "_rec.csv")
         dailyTrades = dailyTrades[dailyTrades.Action.isin(["Sold", "Bought"])]
         dailyTrades.to_csv(REC_ACTIONS_LOCATION + stock + "_rec_actions.csv")
+
+def isDecreasing(cRecord, pRecord, metric):
+    return cRecord[metric] < pRecord[metric]
+

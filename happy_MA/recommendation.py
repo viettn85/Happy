@@ -137,6 +137,50 @@ def defineDailyAction(df, position, stock, portfolio):
     df.Action.iloc[position] = "|".join(actions)
     # END: Set actions
 
+def defineDailyActionWithMA(df, index, stock, portfolio):
+    recommendations = []
+    actions = []
+    RATE = getRate()
+    c = df.iloc[index]
+    p = df.iloc[index + 1]
+    
+    if isStartingUpTrend(df, index):
+        recommendations.append("Start an Up Trend")
+        actions.append("Will Consider to Buy")
+    if isStartingDownTrend(df, index):
+        recommendations.append("Start a Down Trend")
+        actions.append("Will Sell")
+    if c.MA3 <= p.MA3:
+        recommendations.append("Have a Down Signal")
+        actions.append("Will Sell")
+    # if isOnUpTrend(df, index):
+    #     recommendations.append("On an Up Trend")
+    #     actions.append("Will Sell")
+    # Sell when Overcome Profit or Cut Loss
+    if isOverProfit(df, index, stock, portfolio):
+        # ic("Over Profit")
+        recommendations.append("Overcome Profit")
+        actions.append("Will Sell")
+    
+    if isCutLoss(df, index, stock, portfolio):
+        # ic("Cut Loss---")
+        recommendations.append("Cut Loss")
+        actions.append("Will Sell")
+
+    if "Will Consider to Buy" in p.Action and (isFullGreen(df, index, RATE) or isDownGreen(df, index, RATE)):
+        actions.append("Bought as Full Green or Down Green with good conditions")
+    if "Will Sell" in p.Action:
+        actions.append("Sold as bad signal from yesterday")
+    if "Will Buy" in p.Action:
+        actions.append("Bought as bad signal from yesterday")
+
+    df["Recommendation"][index] = "|".join(recommendations)
+    # END: Recommend actions based on current day and previous day
+
+    # START: Set actions
+    df.Action.iloc[index] = "|".join(actions)
+    # END: Set actions
+
 def recommendStock(df, position):
     if "Will Sell" in df.Action.iloc[position]:
         return "Sell"

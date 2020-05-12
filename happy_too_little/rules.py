@@ -89,11 +89,11 @@ def isDownDoji(df, index):
     return (c.Open == c.Close) and (c.Low == c.Open)
 
 def isInscreasingTrend(df, index): # If the current day's high and mean are higher that previous day's
-    if index >= len(df):
+    if index >= len(df) - 1:
         return False
     c = df.iloc[index]
     p = df.iloc[index + 1]
-    return c.Close > p.Close and (c.Close + c.Open) > (p.Close + p.Open)
+    return c.MA3_20 < 0 and (c.Close > p.Close) and ((c.Close + c.Open) > (p.Close + p.Open))
 
 def isOverProfit(df, position, stock, portfolio):
     c = df.iloc[position]
@@ -123,4 +123,16 @@ def isCutLoss(df, position, stock, portfolio):
         if isDoji(df, position) and max(c.Open, c.Close) < cutLossThreshold:
             return True
 
+    return False
+
+def isSpecialReversalToUpTrend(df, index):
+    if index >= len(df) - 2:
+        return False;
+    c = df.iloc[index]
+    p1 = df.iloc[index + 1]
+    p2 = df.iloc[index + 2]
+    if (p1.Category == "Down Doji" or (p1.Category == "Down Red" and p1.Short)) \
+        and (p2.Category == "Down Red" or p2.Category == "Down Doji") \
+        and ((p2.MA3 - p1.MA3) > (p1.MA3 - c.MA3)):
+        return True
     return False

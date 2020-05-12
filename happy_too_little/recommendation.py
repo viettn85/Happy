@@ -57,9 +57,14 @@ def defineDailyAction(df, position, stock, portfolio):
     if isLongGreen(df, position):
         recommendations.append("LongGreenCode")
     if isFullGreen(df, position, RATE):
-        if isInscreasingTrend(df, position):
+        # ic("Full Green")
+        if isSpecialReversalToUpTrend(df, position):
+                # ic("Special pattern")
+                recommendations.append("FullGreenCode-II")
+        elif isInscreasingTrend(df, position):
             recommendations.append("FullGreenCode-I")
             actions.append("Will Probably Buy")
+            # ic(p.Category)
         else:
             recommendations.append("FullGreenCode-N")
     if isFullRed(df, position, RATE):
@@ -70,7 +75,7 @@ def defineDailyAction(df, position, stock, portfolio):
             recommendations.append("UpGreenCode-I")
             actions.append("Will Probably Buy")
         else:
-            recommendations.append("FullGreenCode-N")
+            recommendations.append("UpGreenCode-N")
     if isUpRed(df, position, RATE):
         recommendations.append("UpRedCode")
         actions.append("Will Sell")
@@ -130,6 +135,12 @@ def defineDailyAction(df, position, stock, portfolio):
             elif ("Green" in p.Recommendation) and (c.Open > round((p.Close + p.Open)/2)) and (p.High < c.High):
                 actions.append("Bought as Full Green or Down Green with good conditions")
                 # ic("Bought 2")
+    if "FullGreenCode-II" in p.Recommendation:
+        if isFullRed(df, position, RATE) or isUpRed(df, position, RATE):
+            actions.append("Sold as FullRed or DownRed")
+        else:
+            actions.append("Bought as Special Pattern")
+            # ic("Bought 3")
     df["Recommendation"][position] = "|".join(recommendations)
     # END: Recommend actions based on current day and previous day
 

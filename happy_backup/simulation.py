@@ -30,15 +30,8 @@ def simulateDaily():
         # stockList = ['BID.csv']
         # (portfolio, investingAmount) = analyzeAll(date, stockList, portfolio, investingAmount)
 
-def showResults():
-    dailyReports = pd.read_csv(REPORT_LOCATION + "trade_report.csv", index_col="ID")
-    portfolio  = pd.read_csv(REPORT_LOCATION + "portfolio.csv",index_col="Stock")
-    total = dailyReports.iloc[-1].InvestingAmount + portfolio.Value.sum()
-    ic(total)
-
-preproceed(SOURCE_LOCATION, D3_DATA)
+# preproceed(SOURCE_LOCATION, D3_DATA)
 clearRecFolders()
 clearReports()
 selectStocks(YEAR)
 simulateDaily()
-showResults()

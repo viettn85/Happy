@@ -89,7 +89,7 @@ def isDownDoji(df, index):
     return (c.Open == c.Close) and (c.Low == c.Open)
 
 def isInscreasingTrend(df, index): # If the current day's high and mean are higher that previous day's
-    if index >= len(df):
+    if index >= len(df) - 1:
         return False
     c = df.iloc[index]
     p = df.iloc[index + 1]
@@ -124,3 +124,32 @@ def isCutLoss(df, position, stock, portfolio):
             return True
 
     return False
+
+def isStartingUpTrend(df, index):
+    if index >= len(df) - 1:
+        return False
+    c = df.iloc[index]
+    p = df.iloc[index + 1]
+    # ic("{} {}".format(p.MA3_20, c.MA3_20))
+    return (p.MA3_20 >= 0) and (0 > c.MA3_20)
+
+def isStartingDownTrend(df, index):
+    if index >= len(df) - 1:
+        return False
+    c = df.iloc[index]
+    p = df.iloc[index + 1]
+    return (c.MA3_8 > 0) and (0 >= p.MA3_8)
+
+def isOnIncreasingTrend(df, index):
+    if index >= len(df) - 1:
+        return False
+    c = df.iloc[index]
+    p = df.iloc[index + 1]
+    return (p.MA3_8 > c.MA3_8) and (p.MA3_20 < c.MA3_20) and (p.MA8_20 > c.MA8_20) 
+
+def isOnUpTrend(df, index):
+    if index >= len(df) - 1:
+        return False
+    c = df.iloc[index]
+    p = df.iloc[index + 1]
+    return (p.MA3_8 < 0) and (p.MA3_20 < 0) and (p.MA8_20 < 0) and (c.MA3_8 < 0) and (c.MA3_20 < 0) and (c.MA8_20 < 0) and isOnIncreasingTrend(df, index)
