@@ -1,0 +1,4 @@
+2020-05-17 23:09:08,882 - INFO worker.py:16 - Started updating on 2020-05-17 23:09:08.881895
+2020-05-17 23:09:08,882 - INFO worker.py:17 - Ended updating on 2020-05-17 23:09:08.881895
+2020-05-17 23:09:08,882 - INFO worker.py:21 - Started copying historical data on 2020-05-17 23:09:08.881895
+2020-05-17 23:09:08,882 - INFO worker.py:22 - Ended copying historical data on 2020-05-17 23:09:08.881895

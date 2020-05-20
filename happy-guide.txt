@@ -1,0 +1,26 @@
+1. HappyConvertor
+    Source: data/raw_data/
+    Historical (converted): data/historical/
+    D3 (converted) data/d3/
+    Command: python3 src/happy/convertor.py or happyconvertor
+    Report: reports/converted.csv (list of converted stocks)
+    Run: One time at the beginning to copy and convert historical data
+
+2. HappyWorker
+    Update daily on "data/historical/"
+    Copy updated data to "data/daily/" for daily trading
+    Command: python3 src/happy/worker.py or happyworker
+    Run: Daily at 8PM
+
+3. HappyRec
+a. Using MA3_8
+    Update recommendation on historical data
+    Create a rec report on "reports/rec.csv"
+    Command: python3 src/happy/recommender.py or happyrec
+    Run: Daily at 9PM -> Recommend for the next day
+    Test: 
+        Generate recommendation from start date to end date
+        Command: python3 src/test/rec_test.py
+        It will update the rec report and historical data 
+    
+

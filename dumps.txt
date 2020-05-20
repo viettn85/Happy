@@ -15,7 +15,41 @@ filename = f[f.rfind(' ') + 1:]
 --- gitignore
 git rm --cached happy.ini 
 
+---python cronjob https://medium.com/@gavinwiener/how-to-schedule-a-python-script-cron-job-dea6cbf69f4e
+logging.basicConfig(filename=LOG_FILENAME, 
+                    format='%(asctime)s %(levelname)-8s %(message)s',
+                    level=logging.INFO,
+                    datefmt=TIME_FORMAT)
+
 TCH: 3/3
 
 CLOSE: 27499820.0
 MEAN: 29534615.0
+
+Check: MBG 
+
+--- RULES ---
+BUY:
+- FullGreen or UpGreen with an Increasing Trend
+
+SELL:
+- FullRed or DownRed
+- OverProfit or CutLoss
+- p FullGreen or DownGreen and c is not FullGreen or DownGreen
+
+Night Scan:
+- Scan which stocks to sell or buy tmr
+- Some cases daytime scans could not decide:
+    - Short -> Pass to next Day
+    
+
+Day scan:
+- Detect DownRed or FullRed to sell 
+- p FullGreen or DownGreen and detect c is not FullGreen or DownGreen
+- p FullGreen or DownGreen with an increasing trend:
+    If FullGreen or DownGreen: buy
+alias happyrec='python3 src/happy/recommender.py'
+alias happyworker='python3 src/happy/worker.py'
+alias happyscanner='python3 src/happy/scanner.py'
+alias happyseller='python3 src/happy/seller.py'
+alias happyinvestor='python3 src/happy/investor.py'
