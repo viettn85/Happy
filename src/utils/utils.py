@@ -1,8 +1,14 @@
 from icecream import ic
-import logging
 import sh
 import glob
 from common import getCsvFiles, readRawFile, readFile, getConfigParser
+import smtplib, ssl
+
+import logging
+import logging.config
+
+logging.config.fileConfig(fname='log.conf', disable_existing_loggers=False)
+logger = logging.getLogger()
 
 def getInvestingVolume(price, investingAmount, maxStock):
     stockVolume = round(investingAmount/price)
@@ -85,3 +91,21 @@ def calculateMAs(df):
     df['MA3_8'] = df.MA8 - df.MA3
     df['MA3_20'] = df.MA20 - df.MA3
     df['MA8_20'] = df.MA20 - df.MA8
+
+def sendEmail(message):
+    try:
+        parser = getConfigParser()
+        port = 587
+        smtp_server = "smtp.gmail.com"
+        sender_email = parser.get('happy','sender')
+        receiver_email = parser.get('happy','receiver')
+        password = parser.get('happy','password')
+        context = ssl.create_default_context()
+        with smtplib.SMTP(smtp_server, port) as server:
+            server.ehlo()
+            server.starttls(context=context)
+            server.ehlo()
+            server.login(sender_email, password)
+            server.sendmail(sender_email, receiver_email, message)
+    except:
+        logger.error("Error when sending email")

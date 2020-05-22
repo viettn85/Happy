@@ -7,8 +7,10 @@ import sys
 stock = str(sys.argv[1])
 year = str(sys.argv[2])
 
-df = pd.read_csv('/Users/viet_tran/Workplace/Practice/Happy/data/d3/{}.csv'.format(stock), parse_dates=True, index_col="Date")
+df = pd.read_csv('/Users/viet_tran/Workplace/Practice/Happy/data/daily/{}.csv'.format(stock), parse_dates=True, index_col="Date")
+df.sort_index(ascending=True, inplace=True)
 
+df['Mean'] = df.Close/2 + df.Open/2
 df['MA3'] = df.Close.rolling(3).mean()
 df['MA5'] = df.Close.rolling(5).mean()
 df['MA8'] = df.Close.rolling(8).mean()
@@ -42,7 +44,7 @@ fig = go.Figure(data = [
                             # go.Scatter(x=df.index, y=df.MA5, line=dict(color='black', width=1)),
                             go.Scatter(x=df.index, y=df.MA8, line=dict(color='blue', width=1)),
                             # go.Scatter(x=df.index, y=df.MA20, line=dict(color='green', width=1))
-                            # go.Scatter(x=df.index, y=df.MA120, line=dict(color='green', width=1))
+                            # go.Scatter(x=df.index, y=df.Mean, line=dict(color='black', width=1))
                       ],
                 layout=layout
                 )
