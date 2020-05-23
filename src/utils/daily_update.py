@@ -60,6 +60,7 @@ class Crawl:
         self.df_old = readFile("./data/historical/{}.csv".format(self.mck))
         df_gap = self.df_new.loc[:self.df_old.index.values[0],:][0:-1]
         df_gap = df_gap[FULL]
+        logger.info("{} new records".format({len(df_gap)}))
         df = df_gap.append(self.df_old)
         return df
 

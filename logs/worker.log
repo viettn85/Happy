@@ -36090,3 +36090,818 @@ IndexError: list index out of range
 2020-05-22 22:52:31,088 - INFO recommender.py:130 - Ended recommendation process on 2020-05-22
 2020-05-22 22:53:57,974 - INFO recommender.py:44 - Started recommendation process on 2020-05-22
 2020-05-22 22:54:01,749 - INFO recommender.py:131 - Ended recommendation process on 2020-05-22
+2020-05-22 23:11:50,187 - INFO recommender.py:44 - Started recommendation process on 2020-01-01
+2020-05-22 23:11:51,539 - INFO recommender.py:131 - Ended recommendation process on 2020-01-01
+2020-05-22 23:11:51,539 - INFO recommender.py:44 - Started recommendation process on 2020-01-02
+2020-05-22 23:11:54,007 - INFO recommender.py:131 - Ended recommendation process on 2020-01-02
+2020-05-22 23:11:54,007 - INFO recommender.py:44 - Started recommendation process on 2020-01-03
+2020-05-22 23:11:56,606 - INFO recommender.py:131 - Ended recommendation process on 2020-01-03
+2020-05-22 23:11:56,606 - INFO recommender.py:44 - Started recommendation process on 2020-01-04
+2020-05-22 23:11:57,744 - INFO recommender.py:131 - Ended recommendation process on 2020-01-04
+2020-05-22 23:11:57,744 - INFO recommender.py:44 - Started recommendation process on 2020-01-05
+2020-05-22 23:11:58,893 - INFO recommender.py:131 - Ended recommendation process on 2020-01-05
+2020-05-22 23:11:58,893 - INFO recommender.py:44 - Started recommendation process on 2020-01-06
+2020-05-22 23:12:01,610 - INFO recommender.py:131 - Ended recommendation process on 2020-01-06
+2020-05-22 23:12:01,610 - INFO recommender.py:44 - Started recommendation process on 2020-01-07
+2020-05-22 23:12:04,406 - INFO recommender.py:131 - Ended recommendation process on 2020-01-07
+2020-05-22 23:12:04,407 - INFO recommender.py:44 - Started recommendation process on 2020-01-08
+2020-05-22 23:12:07,348 - INFO recommender.py:131 - Ended recommendation process on 2020-01-08
+2020-05-22 23:12:07,348 - INFO recommender.py:44 - Started recommendation process on 2020-01-09
+2020-05-22 23:12:10,237 - INFO recommender.py:131 - Ended recommendation process on 2020-01-09
+2020-05-22 23:12:10,237 - INFO recommender.py:44 - Started recommendation process on 2020-01-10
+2020-05-22 23:12:13,161 - INFO recommender.py:131 - Ended recommendation process on 2020-01-10
+2020-05-22 23:12:13,161 - INFO recommender.py:44 - Started recommendation process on 2020-01-11
+2020-05-22 23:12:14,347 - INFO recommender.py:131 - Ended recommendation process on 2020-01-11
+2020-05-22 23:12:14,348 - INFO recommender.py:44 - Started recommendation process on 2020-01-12
+2020-05-22 23:12:15,504 - INFO recommender.py:131 - Ended recommendation process on 2020-01-12
+2020-05-22 23:12:15,505 - INFO recommender.py:44 - Started recommendation process on 2020-01-13
+2020-05-22 23:12:18,490 - INFO recommender.py:131 - Ended recommendation process on 2020-01-13
+2020-05-22 23:12:18,490 - INFO recommender.py:44 - Started recommendation process on 2020-01-14
+2020-05-22 23:12:21,513 - INFO recommender.py:131 - Ended recommendation process on 2020-01-14
+2020-05-22 23:12:21,514 - INFO recommender.py:44 - Started recommendation process on 2020-01-15
+2020-05-22 23:12:24,524 - INFO recommender.py:131 - Ended recommendation process on 2020-01-15
+2020-05-22 23:12:24,525 - INFO recommender.py:44 - Started recommendation process on 2020-01-16
+2020-05-22 23:12:27,584 - INFO recommender.py:131 - Ended recommendation process on 2020-01-16
+2020-05-22 23:12:27,585 - INFO recommender.py:44 - Started recommendation process on 2020-01-17
+2020-05-22 23:12:30,625 - INFO recommender.py:131 - Ended recommendation process on 2020-01-17
+2020-05-22 23:12:30,625 - INFO recommender.py:44 - Started recommendation process on 2020-01-18
+2020-05-22 23:12:31,761 - INFO recommender.py:131 - Ended recommendation process on 2020-01-18
+2020-05-22 23:12:31,761 - INFO recommender.py:44 - Started recommendation process on 2020-01-19
+2020-05-22 23:12:32,953 - INFO recommender.py:131 - Ended recommendation process on 2020-01-19
+2020-05-22 23:12:32,953 - INFO recommender.py:44 - Started recommendation process on 2020-01-20
+2020-05-22 23:12:36,031 - INFO recommender.py:131 - Ended recommendation process on 2020-01-20
+2020-05-22 23:12:36,031 - INFO recommender.py:44 - Started recommendation process on 2020-01-21
+2020-05-22 23:12:39,200 - INFO recommender.py:131 - Ended recommendation process on 2020-01-21
+2020-05-22 23:12:39,200 - INFO recommender.py:44 - Started recommendation process on 2020-01-22
+2020-05-22 23:12:42,738 - INFO recommender.py:131 - Ended recommendation process on 2020-01-22
+2020-05-22 23:12:42,738 - INFO recommender.py:44 - Started recommendation process on 2020-01-23
+2020-05-22 23:12:44,030 - INFO recommender.py:131 - Ended recommendation process on 2020-01-23
+2020-05-22 23:12:44,031 - INFO recommender.py:44 - Started recommendation process on 2020-01-24
+2020-05-22 23:12:45,432 - INFO recommender.py:131 - Ended recommendation process on 2020-01-24
+2020-05-22 23:12:45,433 - INFO recommender.py:44 - Started recommendation process on 2020-01-25
+2020-05-22 23:12:46,674 - INFO recommender.py:131 - Ended recommendation process on 2020-01-25
+2020-05-22 23:12:46,674 - INFO recommender.py:44 - Started recommendation process on 2020-01-26
+2020-05-22 23:12:48,047 - INFO recommender.py:131 - Ended recommendation process on 2020-01-26
+2020-05-22 23:12:48,047 - INFO recommender.py:44 - Started recommendation process on 2020-01-27
+2020-05-22 23:12:49,279 - INFO recommender.py:131 - Ended recommendation process on 2020-01-27
+2020-05-22 23:12:49,279 - INFO recommender.py:44 - Started recommendation process on 2020-01-28
+2020-05-22 23:12:50,503 - INFO recommender.py:131 - Ended recommendation process on 2020-01-28
+2020-05-22 23:12:50,503 - INFO recommender.py:44 - Started recommendation process on 2020-01-29
+2020-05-22 23:12:51,757 - INFO recommender.py:131 - Ended recommendation process on 2020-01-29
+2020-05-22 23:12:51,757 - INFO recommender.py:44 - Started recommendation process on 2020-01-30
+2020-05-22 23:12:54,995 - INFO recommender.py:131 - Ended recommendation process on 2020-01-30
+2020-05-22 23:12:54,995 - INFO recommender.py:44 - Started recommendation process on 2020-01-31
+2020-05-22 23:12:58,164 - INFO recommender.py:131 - Ended recommendation process on 2020-01-31
+2020-05-22 23:12:58,164 - INFO recommender.py:44 - Started recommendation process on 2020-02-01
+2020-05-22 23:12:59,338 - INFO recommender.py:131 - Ended recommendation process on 2020-02-01
+2020-05-22 23:12:59,338 - INFO recommender.py:44 - Started recommendation process on 2020-02-02
+2020-05-22 23:13:00,518 - INFO recommender.py:131 - Ended recommendation process on 2020-02-02
+2020-05-22 23:13:00,519 - INFO recommender.py:44 - Started recommendation process on 2020-02-03
+2020-05-22 23:13:03,972 - INFO recommender.py:131 - Ended recommendation process on 2020-02-03
+2020-05-22 23:13:03,973 - INFO recommender.py:44 - Started recommendation process on 2020-02-04
+2020-05-22 23:13:07,047 - INFO recommender.py:131 - Ended recommendation process on 2020-02-04
+2020-05-22 23:13:07,048 - INFO recommender.py:44 - Started recommendation process on 2020-02-05
+2020-05-22 23:13:10,119 - INFO recommender.py:131 - Ended recommendation process on 2020-02-05
+2020-05-22 23:13:10,119 - INFO recommender.py:44 - Started recommendation process on 2020-02-06
+2020-05-22 23:13:13,166 - INFO recommender.py:131 - Ended recommendation process on 2020-02-06
+2020-05-22 23:13:13,166 - INFO recommender.py:44 - Started recommendation process on 2020-02-07
+2020-05-22 23:13:16,295 - INFO recommender.py:131 - Ended recommendation process on 2020-02-07
+2020-05-22 23:13:16,296 - INFO recommender.py:44 - Started recommendation process on 2020-02-08
+2020-05-22 23:13:17,460 - INFO recommender.py:131 - Ended recommendation process on 2020-02-08
+2020-05-22 23:13:17,460 - INFO recommender.py:44 - Started recommendation process on 2020-02-09
+2020-05-22 23:13:18,648 - INFO recommender.py:131 - Ended recommendation process on 2020-02-09
+2020-05-22 23:13:18,648 - INFO recommender.py:44 - Started recommendation process on 2020-02-10
+2020-05-22 23:13:21,887 - INFO recommender.py:131 - Ended recommendation process on 2020-02-10
+2020-05-22 23:13:21,887 - INFO recommender.py:44 - Started recommendation process on 2020-02-11
+2020-05-22 23:13:25,142 - INFO recommender.py:131 - Ended recommendation process on 2020-02-11
+2020-05-22 23:13:25,143 - INFO recommender.py:44 - Started recommendation process on 2020-02-12
+2020-05-22 23:13:28,404 - INFO recommender.py:131 - Ended recommendation process on 2020-02-12
+2020-05-22 23:13:28,404 - INFO recommender.py:44 - Started recommendation process on 2020-02-13
+2020-05-22 23:13:31,634 - INFO recommender.py:131 - Ended recommendation process on 2020-02-13
+2020-05-22 23:13:31,634 - INFO recommender.py:44 - Started recommendation process on 2020-02-14
+2020-05-22 23:13:34,864 - INFO recommender.py:131 - Ended recommendation process on 2020-02-14
+2020-05-22 23:13:34,864 - INFO recommender.py:44 - Started recommendation process on 2020-02-15
+2020-05-22 23:13:36,056 - INFO recommender.py:131 - Ended recommendation process on 2020-02-15
+2020-05-22 23:13:36,056 - INFO recommender.py:44 - Started recommendation process on 2020-02-16
+2020-05-22 23:13:37,298 - INFO recommender.py:131 - Ended recommendation process on 2020-02-16
+2020-05-22 23:13:37,298 - INFO recommender.py:44 - Started recommendation process on 2020-02-17
+2020-05-22 23:13:40,518 - INFO recommender.py:131 - Ended recommendation process on 2020-02-17
+2020-05-22 23:13:40,519 - INFO recommender.py:44 - Started recommendation process on 2020-02-18
+2020-05-22 23:13:43,809 - INFO recommender.py:131 - Ended recommendation process on 2020-02-18
+2020-05-22 23:13:43,809 - INFO recommender.py:44 - Started recommendation process on 2020-02-19
+2020-05-22 23:13:47,148 - INFO recommender.py:131 - Ended recommendation process on 2020-02-19
+2020-05-22 23:13:47,148 - INFO recommender.py:44 - Started recommendation process on 2020-02-20
+2020-05-22 23:13:50,378 - INFO recommender.py:131 - Ended recommendation process on 2020-02-20
+2020-05-22 23:13:50,379 - INFO recommender.py:44 - Started recommendation process on 2020-02-21
+2020-05-22 23:13:53,598 - INFO recommender.py:131 - Ended recommendation process on 2020-02-21
+2020-05-22 23:13:53,598 - INFO recommender.py:44 - Started recommendation process on 2020-02-22
+2020-05-22 23:13:54,781 - INFO recommender.py:131 - Ended recommendation process on 2020-02-22
+2020-05-22 23:13:54,781 - INFO recommender.py:44 - Started recommendation process on 2020-02-23
+2020-05-22 23:13:55,984 - INFO recommender.py:131 - Ended recommendation process on 2020-02-23
+2020-05-22 23:13:55,984 - INFO recommender.py:44 - Started recommendation process on 2020-02-24
+2020-05-22 23:13:59,155 - INFO recommender.py:131 - Ended recommendation process on 2020-02-24
+2020-05-22 23:13:59,155 - INFO recommender.py:44 - Started recommendation process on 2020-02-25
+2020-05-22 23:14:02,432 - INFO recommender.py:131 - Ended recommendation process on 2020-02-25
+2020-05-22 23:14:02,432 - INFO recommender.py:44 - Started recommendation process on 2020-02-26
+2020-05-22 23:14:05,567 - INFO recommender.py:131 - Ended recommendation process on 2020-02-26
+2020-05-22 23:14:05,567 - INFO recommender.py:44 - Started recommendation process on 2020-02-27
+2020-05-22 23:14:08,641 - INFO recommender.py:131 - Ended recommendation process on 2020-02-27
+2020-05-22 23:14:08,641 - INFO recommender.py:44 - Started recommendation process on 2020-02-28
+2020-05-22 23:14:11,741 - INFO recommender.py:131 - Ended recommendation process on 2020-02-28
+2020-05-22 23:14:11,741 - INFO recommender.py:44 - Started recommendation process on 2020-02-29
+2020-05-22 23:14:12,913 - INFO recommender.py:131 - Ended recommendation process on 2020-02-29
+2020-05-22 23:14:12,913 - INFO recommender.py:44 - Started recommendation process on 2020-03-01
+2020-05-22 23:14:14,098 - INFO recommender.py:131 - Ended recommendation process on 2020-03-01
+2020-05-22 23:14:14,098 - INFO recommender.py:44 - Started recommendation process on 2020-03-02
+2020-05-22 23:14:17,228 - INFO recommender.py:131 - Ended recommendation process on 2020-03-02
+2020-05-22 23:14:17,228 - INFO recommender.py:44 - Started recommendation process on 2020-03-03
+2020-05-22 23:14:20,418 - INFO recommender.py:131 - Ended recommendation process on 2020-03-03
+2020-05-22 23:14:20,418 - INFO recommender.py:44 - Started recommendation process on 2020-03-04
+2020-05-22 23:14:23,618 - INFO recommender.py:131 - Ended recommendation process on 2020-03-04
+2020-05-22 23:14:23,618 - INFO recommender.py:44 - Started recommendation process on 2020-03-05
+2020-05-22 23:14:26,876 - INFO recommender.py:131 - Ended recommendation process on 2020-03-05
+2020-05-22 23:14:26,877 - INFO recommender.py:44 - Started recommendation process on 2020-03-06
+2020-05-22 23:14:30,107 - INFO recommender.py:131 - Ended recommendation process on 2020-03-06
+2020-05-22 23:14:30,107 - INFO recommender.py:44 - Started recommendation process on 2020-03-07
+2020-05-22 23:14:31,280 - INFO recommender.py:131 - Ended recommendation process on 2020-03-07
+2020-05-22 23:14:31,280 - INFO recommender.py:44 - Started recommendation process on 2020-03-08
+2020-05-22 23:14:32,479 - INFO recommender.py:131 - Ended recommendation process on 2020-03-08
+2020-05-22 23:14:32,480 - INFO recommender.py:44 - Started recommendation process on 2020-03-09
+2020-05-22 23:14:35,710 - INFO recommender.py:131 - Ended recommendation process on 2020-03-09
+2020-05-22 23:14:35,711 - INFO recommender.py:44 - Started recommendation process on 2020-03-10
+2020-05-22 23:14:38,839 - INFO recommender.py:131 - Ended recommendation process on 2020-03-10
+2020-05-22 23:14:38,840 - INFO recommender.py:44 - Started recommendation process on 2020-03-11
+2020-05-22 23:14:41,846 - INFO recommender.py:131 - Ended recommendation process on 2020-03-11
+2020-05-22 23:14:41,847 - INFO recommender.py:44 - Started recommendation process on 2020-03-12
+2020-05-22 23:14:44,881 - INFO recommender.py:131 - Ended recommendation process on 2020-03-12
+2020-05-22 23:14:44,882 - INFO recommender.py:44 - Started recommendation process on 2020-03-13
+2020-05-22 23:14:47,925 - INFO recommender.py:131 - Ended recommendation process on 2020-03-13
+2020-05-22 23:14:47,925 - INFO recommender.py:44 - Started recommendation process on 2020-03-14
+2020-05-22 23:14:49,096 - INFO recommender.py:131 - Ended recommendation process on 2020-03-14
+2020-05-22 23:14:49,096 - INFO recommender.py:44 - Started recommendation process on 2020-03-15
+2020-05-22 23:14:50,271 - INFO recommender.py:131 - Ended recommendation process on 2020-03-15
+2020-05-22 23:14:50,272 - INFO recommender.py:44 - Started recommendation process on 2020-03-16
+2020-05-22 23:14:53,369 - INFO recommender.py:131 - Ended recommendation process on 2020-03-16
+2020-05-22 23:14:53,369 - INFO recommender.py:44 - Started recommendation process on 2020-03-17
+2020-05-22 23:14:56,484 - INFO recommender.py:131 - Ended recommendation process on 2020-03-17
+2020-05-22 23:14:56,484 - INFO recommender.py:44 - Started recommendation process on 2020-03-18
+2020-05-22 23:14:59,588 - INFO recommender.py:131 - Ended recommendation process on 2020-03-18
+2020-05-22 23:14:59,588 - INFO recommender.py:44 - Started recommendation process on 2020-03-19
+2020-05-22 23:15:02,738 - INFO recommender.py:131 - Ended recommendation process on 2020-03-19
+2020-05-22 23:15:02,738 - INFO recommender.py:44 - Started recommendation process on 2020-03-20
+2020-05-22 23:15:05,902 - INFO recommender.py:131 - Ended recommendation process on 2020-03-20
+2020-05-22 23:15:05,902 - INFO recommender.py:44 - Started recommendation process on 2020-03-21
+2020-05-22 23:15:07,062 - INFO recommender.py:131 - Ended recommendation process on 2020-03-21
+2020-05-22 23:15:07,062 - INFO recommender.py:44 - Started recommendation process on 2020-03-22
+2020-05-22 23:15:08,264 - INFO recommender.py:131 - Ended recommendation process on 2020-03-22
+2020-05-22 23:15:08,264 - INFO recommender.py:44 - Started recommendation process on 2020-03-23
+2020-05-22 23:15:11,343 - INFO recommender.py:131 - Ended recommendation process on 2020-03-23
+2020-05-22 23:15:11,344 - INFO recommender.py:44 - Started recommendation process on 2020-03-24
+2020-05-22 23:15:14,495 - INFO recommender.py:131 - Ended recommendation process on 2020-03-24
+2020-05-22 23:15:14,495 - INFO recommender.py:44 - Started recommendation process on 2020-03-25
+2020-05-22 23:15:17,535 - INFO recommender.py:131 - Ended recommendation process on 2020-03-25
+2020-05-22 23:15:17,535 - INFO recommender.py:44 - Started recommendation process on 2020-03-26
+2020-05-22 23:15:20,603 - INFO recommender.py:131 - Ended recommendation process on 2020-03-26
+2020-05-22 23:15:20,603 - INFO recommender.py:44 - Started recommendation process on 2020-03-27
+2020-05-22 23:15:23,675 - INFO recommender.py:131 - Ended recommendation process on 2020-03-27
+2020-05-22 23:15:23,675 - INFO recommender.py:44 - Started recommendation process on 2020-03-28
+2020-05-22 23:15:24,848 - INFO recommender.py:131 - Ended recommendation process on 2020-03-28
+2020-05-22 23:15:24,848 - INFO recommender.py:44 - Started recommendation process on 2020-03-29
+2020-05-22 23:15:26,087 - INFO recommender.py:131 - Ended recommendation process on 2020-03-29
+2020-05-22 23:15:26,088 - INFO recommender.py:44 - Started recommendation process on 2020-03-30
+2020-05-22 23:15:29,192 - INFO recommender.py:131 - Ended recommendation process on 2020-03-30
+2020-05-22 23:15:29,192 - INFO recommender.py:44 - Started recommendation process on 2020-03-31
+2020-05-22 23:15:32,343 - INFO recommender.py:131 - Ended recommendation process on 2020-03-31
+2020-05-22 23:15:32,343 - INFO recommender.py:44 - Started recommendation process on 2020-04-01
+2020-05-22 23:15:35,519 - INFO recommender.py:131 - Ended recommendation process on 2020-04-01
+2020-05-22 23:15:35,519 - INFO recommender.py:44 - Started recommendation process on 2020-04-02
+2020-05-22 23:15:36,696 - INFO recommender.py:131 - Ended recommendation process on 2020-04-02
+2020-05-22 23:15:36,697 - INFO recommender.py:44 - Started recommendation process on 2020-04-03
+2020-05-22 23:15:39,906 - INFO recommender.py:131 - Ended recommendation process on 2020-04-03
+2020-05-22 23:15:39,907 - INFO recommender.py:44 - Started recommendation process on 2020-04-04
+2020-05-22 23:15:41,070 - INFO recommender.py:131 - Ended recommendation process on 2020-04-04
+2020-05-22 23:15:41,070 - INFO recommender.py:44 - Started recommendation process on 2020-04-05
+2020-05-22 23:15:42,264 - INFO recommender.py:131 - Ended recommendation process on 2020-04-05
+2020-05-22 23:15:42,264 - INFO recommender.py:44 - Started recommendation process on 2020-04-06
+2020-05-22 23:15:45,730 - INFO recommender.py:131 - Ended recommendation process on 2020-04-06
+2020-05-22 23:15:45,731 - INFO recommender.py:44 - Started recommendation process on 2020-04-07
+2020-05-22 23:15:49,255 - INFO recommender.py:131 - Ended recommendation process on 2020-04-07
+2020-05-22 23:15:49,255 - INFO recommender.py:44 - Started recommendation process on 2020-04-08
+2020-05-22 23:15:52,543 - INFO recommender.py:131 - Ended recommendation process on 2020-04-08
+2020-05-22 23:15:52,543 - INFO recommender.py:44 - Started recommendation process on 2020-04-09
+2020-05-22 23:15:55,791 - INFO recommender.py:131 - Ended recommendation process on 2020-04-09
+2020-05-22 23:15:55,792 - INFO recommender.py:44 - Started recommendation process on 2020-04-10
+2020-05-22 23:15:59,084 - INFO recommender.py:131 - Ended recommendation process on 2020-04-10
+2020-05-22 23:15:59,085 - INFO recommender.py:44 - Started recommendation process on 2020-04-11
+2020-05-22 23:16:00,250 - INFO recommender.py:131 - Ended recommendation process on 2020-04-11
+2020-05-22 23:16:00,250 - INFO recommender.py:44 - Started recommendation process on 2020-04-12
+2020-05-22 23:16:01,437 - INFO recommender.py:131 - Ended recommendation process on 2020-04-12
+2020-05-22 23:16:01,437 - INFO recommender.py:44 - Started recommendation process on 2020-04-13
+2020-05-22 23:16:04,715 - INFO recommender.py:131 - Ended recommendation process on 2020-04-13
+2020-05-22 23:16:04,715 - INFO recommender.py:44 - Started recommendation process on 2020-04-14
+2020-05-22 23:16:07,937 - INFO recommender.py:131 - Ended recommendation process on 2020-04-14
+2020-05-22 23:16:07,937 - INFO recommender.py:44 - Started recommendation process on 2020-04-15
+2020-05-22 23:16:11,180 - INFO recommender.py:131 - Ended recommendation process on 2020-04-15
+2020-05-22 23:16:11,181 - INFO recommender.py:44 - Started recommendation process on 2020-04-16
+2020-05-22 23:16:14,492 - INFO recommender.py:131 - Ended recommendation process on 2020-04-16
+2020-05-22 23:16:14,492 - INFO recommender.py:44 - Started recommendation process on 2020-04-17
+2020-05-22 23:16:17,804 - INFO recommender.py:131 - Ended recommendation process on 2020-04-17
+2020-05-22 23:16:17,804 - INFO recommender.py:44 - Started recommendation process on 2020-04-18
+2020-05-22 23:16:18,955 - INFO recommender.py:131 - Ended recommendation process on 2020-04-18
+2020-05-22 23:16:18,956 - INFO recommender.py:44 - Started recommendation process on 2020-04-19
+2020-05-22 23:16:20,146 - INFO recommender.py:131 - Ended recommendation process on 2020-04-19
+2020-05-22 23:16:20,146 - INFO recommender.py:44 - Started recommendation process on 2020-04-20
+2020-05-22 23:16:23,466 - INFO recommender.py:131 - Ended recommendation process on 2020-04-20
+2020-05-22 23:16:23,467 - INFO recommender.py:44 - Started recommendation process on 2020-04-21
+2020-05-22 23:16:26,733 - INFO recommender.py:131 - Ended recommendation process on 2020-04-21
+2020-05-22 23:16:26,733 - INFO recommender.py:44 - Started recommendation process on 2020-04-22
+2020-05-22 23:16:29,911 - INFO recommender.py:131 - Ended recommendation process on 2020-04-22
+2020-05-22 23:16:29,911 - INFO recommender.py:44 - Started recommendation process on 2020-04-23
+2020-05-22 23:16:33,071 - INFO recommender.py:131 - Ended recommendation process on 2020-04-23
+2020-05-22 23:16:33,071 - INFO recommender.py:44 - Started recommendation process on 2020-04-24
+2020-05-22 23:16:36,280 - INFO recommender.py:131 - Ended recommendation process on 2020-04-24
+2020-05-22 23:16:36,280 - INFO recommender.py:44 - Started recommendation process on 2020-04-25
+2020-05-22 23:16:37,424 - INFO recommender.py:131 - Ended recommendation process on 2020-04-25
+2020-05-22 23:16:37,425 - INFO recommender.py:44 - Started recommendation process on 2020-04-26
+2020-05-22 23:16:38,591 - INFO recommender.py:131 - Ended recommendation process on 2020-04-26
+2020-05-22 23:16:38,591 - INFO recommender.py:44 - Started recommendation process on 2020-04-27
+2020-05-22 23:16:41,762 - INFO recommender.py:131 - Ended recommendation process on 2020-04-27
+2020-05-22 23:16:41,762 - INFO recommender.py:44 - Started recommendation process on 2020-04-28
+2020-05-22 23:16:45,057 - INFO recommender.py:131 - Ended recommendation process on 2020-04-28
+2020-05-22 23:16:45,057 - INFO recommender.py:44 - Started recommendation process on 2020-04-29
+2020-05-22 23:16:48,247 - INFO recommender.py:131 - Ended recommendation process on 2020-04-29
+2020-05-22 23:16:48,248 - INFO recommender.py:44 - Started recommendation process on 2020-04-30
+2020-05-22 23:16:49,403 - INFO recommender.py:131 - Ended recommendation process on 2020-04-30
+2020-05-22 23:16:49,404 - INFO recommender.py:44 - Started recommendation process on 2020-05-01
+2020-05-22 23:16:50,585 - INFO recommender.py:131 - Ended recommendation process on 2020-05-01
+2020-05-22 23:16:50,586 - INFO recommender.py:44 - Started recommendation process on 2020-05-02
+2020-05-22 23:16:51,728 - INFO recommender.py:131 - Ended recommendation process on 2020-05-02
+2020-05-22 23:16:51,728 - INFO recommender.py:44 - Started recommendation process on 2020-05-03
+2020-05-22 23:16:52,864 - INFO recommender.py:131 - Ended recommendation process on 2020-05-03
+2020-05-22 23:16:52,864 - INFO recommender.py:44 - Started recommendation process on 2020-05-04
+2020-05-22 23:16:56,058 - INFO recommender.py:131 - Ended recommendation process on 2020-05-04
+2020-05-22 23:16:56,058 - INFO recommender.py:44 - Started recommendation process on 2020-05-05
+2020-05-22 23:16:59,245 - INFO recommender.py:131 - Ended recommendation process on 2020-05-05
+2020-05-22 23:16:59,245 - INFO recommender.py:44 - Started recommendation process on 2020-05-06
+2020-05-22 23:17:02,422 - INFO recommender.py:131 - Ended recommendation process on 2020-05-06
+2020-05-22 23:17:02,422 - INFO recommender.py:44 - Started recommendation process on 2020-05-07
+2020-05-22 23:17:05,738 - INFO recommender.py:131 - Ended recommendation process on 2020-05-07
+2020-05-22 23:17:05,738 - INFO recommender.py:44 - Started recommendation process on 2020-05-08
+2020-05-22 23:17:09,063 - INFO recommender.py:131 - Ended recommendation process on 2020-05-08
+2020-05-22 23:17:09,063 - INFO recommender.py:44 - Started recommendation process on 2020-05-09
+2020-05-22 23:17:10,224 - INFO recommender.py:131 - Ended recommendation process on 2020-05-09
+2020-05-22 23:17:10,224 - INFO recommender.py:44 - Started recommendation process on 2020-05-10
+2020-05-22 23:17:11,406 - INFO recommender.py:131 - Ended recommendation process on 2020-05-10
+2020-05-22 23:17:11,406 - INFO recommender.py:44 - Started recommendation process on 2020-05-11
+2020-05-22 23:17:14,670 - INFO recommender.py:131 - Ended recommendation process on 2020-05-11
+2020-05-22 23:17:14,670 - INFO recommender.py:44 - Started recommendation process on 2020-05-12
+2020-05-22 23:17:18,003 - INFO recommender.py:131 - Ended recommendation process on 2020-05-12
+2020-05-22 23:17:18,003 - INFO recommender.py:44 - Started recommendation process on 2020-05-13
+2020-05-22 23:17:21,338 - INFO recommender.py:131 - Ended recommendation process on 2020-05-13
+2020-05-22 23:17:21,338 - INFO recommender.py:44 - Started recommendation process on 2020-05-14
+2020-05-22 23:17:24,693 - INFO recommender.py:131 - Ended recommendation process on 2020-05-14
+2020-05-22 23:17:24,694 - INFO recommender.py:44 - Started recommendation process on 2020-05-15
+2020-05-22 23:17:28,057 - INFO recommender.py:131 - Ended recommendation process on 2020-05-15
+2020-05-22 23:17:28,057 - INFO recommender.py:44 - Started recommendation process on 2020-05-16
+2020-05-22 23:17:29,297 - INFO recommender.py:131 - Ended recommendation process on 2020-05-16
+2020-05-22 23:17:29,297 - INFO recommender.py:44 - Started recommendation process on 2020-05-17
+2020-05-22 23:17:30,547 - INFO recommender.py:131 - Ended recommendation process on 2020-05-17
+2020-05-22 23:17:30,548 - INFO recommender.py:44 - Started recommendation process on 2020-05-18
+2020-05-22 23:17:33,968 - INFO recommender.py:131 - Ended recommendation process on 2020-05-18
+2020-05-22 23:17:33,969 - INFO recommender.py:44 - Started recommendation process on 2020-05-19
+2020-05-22 23:17:37,261 - INFO recommender.py:131 - Ended recommendation process on 2020-05-19
+2020-05-22 23:17:37,261 - INFO recommender.py:44 - Started recommendation process on 2020-05-20
+2020-05-22 23:17:40,486 - INFO recommender.py:131 - Ended recommendation process on 2020-05-20
+2020-05-22 23:17:40,486 - INFO recommender.py:44 - Started recommendation process on 2020-05-21
+2020-05-22 23:17:43,704 - INFO recommender.py:131 - Ended recommendation process on 2020-05-21
+2020-05-22 23:17:43,704 - INFO recommender.py:44 - Started recommendation process on 2020-05-22
+2020-05-22 23:17:46,687 - INFO recommender.py:131 - Ended recommendation process on 2020-05-22
+2020-05-22 23:30:15,472 - INFO worker.py:16 - Started updating on 2020-05-22
+2020-05-22 23:30:15,474 - INFO worker.py:21 - (0, 'BVH')
+2020-05-22 23:30:15,474 - INFO daily_update.py:67 - Started updating BVH
+2020-05-22 23:30:15,474 - INFO daily_update.py:40 - Getting new data of BVH
+2020-05-22 23:30:16,558 - INFO daily_update.py:55 - Completed getting new data of BVH
+2020-05-22 23:30:16,623 - INFO daily_update.py:76 - Ended updating BVH
+2020-05-22 23:30:16,624 - INFO worker.py:21 - (1, 'TIG')
+2020-05-22 23:30:16,624 - INFO daily_update.py:67 - Started updating TIG
+2020-05-22 23:30:16,624 - INFO daily_update.py:40 - Getting new data of TIG
+2020-05-22 23:30:17,124 - INFO daily_update.py:55 - Completed getting new data of TIG
+2020-05-22 23:30:17,179 - INFO daily_update.py:76 - Ended updating TIG
+2020-05-22 23:30:17,179 - INFO worker.py:21 - (2, 'ART')
+2020-05-22 23:30:17,180 - INFO daily_update.py:67 - Started updating ART
+2020-05-22 23:30:17,180 - INFO daily_update.py:40 - Getting new data of ART
+2020-05-22 23:30:17,632 - INFO daily_update.py:55 - Completed getting new data of ART
+2020-05-22 23:30:17,674 - INFO daily_update.py:76 - Ended updating ART
+2020-05-22 23:30:17,675 - INFO worker.py:21 - (3, 'FLC')
+2020-05-22 23:30:17,675 - INFO daily_update.py:67 - Started updating FLC
+2020-05-22 23:30:17,675 - INFO daily_update.py:40 - Getting new data of FLC
+2020-05-22 23:30:18,136 - INFO daily_update.py:55 - Completed getting new data of FLC
+2020-05-22 23:30:18,187 - INFO daily_update.py:76 - Ended updating FLC
+2020-05-22 23:30:18,188 - INFO worker.py:21 - (4, 'PDR')
+2020-05-22 23:30:18,188 - INFO daily_update.py:67 - Started updating PDR
+2020-05-22 23:30:18,188 - INFO daily_update.py:40 - Getting new data of PDR
+2020-05-22 23:30:18,660 - INFO daily_update.py:55 - Completed getting new data of PDR
+2020-05-22 23:30:18,714 - INFO daily_update.py:76 - Ended updating PDR
+2020-05-22 23:30:18,714 - INFO worker.py:21 - (5, 'HAI')
+2020-05-22 23:30:18,714 - INFO daily_update.py:67 - Started updating HAI
+2020-05-22 23:30:18,714 - INFO daily_update.py:40 - Getting new data of HAI
+2020-05-22 23:30:19,186 - INFO daily_update.py:55 - Completed getting new data of HAI
+2020-05-22 23:30:19,239 - INFO daily_update.py:76 - Ended updating HAI
+2020-05-22 23:30:19,239 - INFO worker.py:21 - (6, 'FCN')
+2020-05-22 23:30:19,239 - INFO daily_update.py:67 - Started updating FCN
+2020-05-22 23:30:19,239 - INFO daily_update.py:40 - Getting new data of FCN
+2020-05-22 23:30:19,931 - INFO daily_update.py:55 - Completed getting new data of FCN
+2020-05-22 23:30:19,983 - INFO daily_update.py:76 - Ended updating FCN
+2020-05-22 23:30:19,984 - INFO worker.py:21 - (7, 'CII')
+2020-05-22 23:30:19,984 - INFO daily_update.py:67 - Started updating CII
+2020-05-22 23:30:19,984 - INFO daily_update.py:40 - Getting new data of CII
+2020-05-22 23:30:20,516 - INFO daily_update.py:55 - Completed getting new data of CII
+2020-05-22 23:30:20,577 - INFO daily_update.py:76 - Ended updating CII
+2020-05-22 23:30:20,577 - INFO worker.py:21 - (8, 'DCM')
+2020-05-22 23:30:20,577 - INFO daily_update.py:67 - Started updating DCM
+2020-05-22 23:30:20,577 - INFO daily_update.py:40 - Getting new data of DCM
+2020-05-22 23:31:36,354 - INFO daily_update.py:55 - Completed getting new data of DCM
+2020-05-22 23:31:36,411 - INFO daily_update.py:76 - Ended updating DCM
+2020-05-22 23:31:36,411 - INFO worker.py:21 - (9, 'DXG')
+2020-05-22 23:31:36,411 - INFO daily_update.py:67 - Started updating DXG
+2020-05-22 23:31:36,411 - INFO daily_update.py:40 - Getting new data of DXG
+2020-05-22 23:31:36,875 - INFO daily_update.py:55 - Completed getting new data of DXG
+2020-05-22 23:31:36,931 - INFO daily_update.py:76 - Ended updating DXG
+2020-05-22 23:31:36,931 - INFO worker.py:21 - (10, 'JVC')
+2020-05-22 23:31:36,931 - INFO daily_update.py:67 - Started updating JVC
+2020-05-22 23:31:36,931 - INFO daily_update.py:40 - Getting new data of JVC
+2020-05-22 23:31:37,445 - INFO daily_update.py:55 - Completed getting new data of JVC
+2020-05-22 23:31:37,505 - INFO daily_update.py:76 - Ended updating JVC
+2020-05-22 23:31:37,505 - INFO worker.py:21 - (11, 'GEX')
+2020-05-22 23:31:37,505 - INFO daily_update.py:67 - Started updating GEX
+2020-05-22 23:31:37,505 - INFO daily_update.py:40 - Getting new data of GEX
+2020-05-22 23:31:37,981 - INFO daily_update.py:55 - Completed getting new data of GEX
+2020-05-22 23:31:38,037 - INFO daily_update.py:76 - Ended updating GEX
+2020-05-22 23:31:38,037 - INFO worker.py:21 - (12, 'PHR')
+2020-05-22 23:31:38,038 - INFO daily_update.py:67 - Started updating PHR
+2020-05-22 23:31:38,038 - INFO daily_update.py:40 - Getting new data of PHR
+2020-05-22 23:31:38,531 - INFO daily_update.py:55 - Completed getting new data of PHR
+2020-05-22 23:31:38,585 - INFO daily_update.py:76 - Ended updating PHR
+2020-05-22 23:31:38,585 - INFO worker.py:21 - (13, 'VIC')
+2020-05-22 23:31:38,585 - INFO daily_update.py:67 - Started updating VIC
+2020-05-22 23:31:38,585 - INFO daily_update.py:40 - Getting new data of VIC
+2020-05-22 23:31:39,087 - INFO daily_update.py:55 - Completed getting new data of VIC
+2020-05-22 23:31:39,140 - INFO daily_update.py:76 - Ended updating VIC
+2020-05-22 23:31:39,141 - INFO worker.py:21 - (14, 'HCD')
+2020-05-22 23:31:39,141 - INFO daily_update.py:67 - Started updating HCD
+2020-05-22 23:31:39,141 - INFO daily_update.py:40 - Getting new data of HCD
+2020-05-22 23:31:39,569 - INFO daily_update.py:55 - Completed getting new data of HCD
+2020-05-22 23:31:39,622 - INFO daily_update.py:76 - Ended updating HCD
+2020-05-22 23:31:39,622 - INFO worker.py:21 - (15, 'CEO')
+2020-05-22 23:31:39,622 - INFO daily_update.py:67 - Started updating CEO
+2020-05-22 23:31:39,623 - INFO daily_update.py:40 - Getting new data of CEO
+2020-05-22 23:31:40,059 - INFO daily_update.py:55 - Completed getting new data of CEO
+2020-05-22 23:31:40,112 - INFO daily_update.py:76 - Ended updating CEO
+2020-05-22 23:31:40,112 - INFO worker.py:21 - (16, 'SCR')
+2020-05-22 23:31:40,112 - INFO daily_update.py:67 - Started updating SCR
+2020-05-22 23:31:40,112 - INFO daily_update.py:40 - Getting new data of SCR
+2020-05-22 23:31:40,560 - INFO daily_update.py:55 - Completed getting new data of SCR
+2020-05-22 23:31:40,614 - INFO daily_update.py:76 - Ended updating SCR
+2020-05-22 23:31:40,614 - INFO worker.py:21 - (17, 'DLG')
+2020-05-22 23:31:40,614 - INFO daily_update.py:67 - Started updating DLG
+2020-05-22 23:31:40,614 - INFO daily_update.py:40 - Getting new data of DLG
+2020-05-22 23:31:41,112 - INFO daily_update.py:55 - Completed getting new data of DLG
+2020-05-22 23:31:41,172 - INFO daily_update.py:76 - Ended updating DLG
+2020-05-22 23:31:41,172 - INFO worker.py:21 - (18, 'VGI')
+2020-05-22 23:31:41,173 - INFO daily_update.py:67 - Started updating VGI
+2020-05-22 23:31:41,173 - INFO daily_update.py:40 - Getting new data of VGI
+2020-05-22 23:31:41,892 - INFO daily_update.py:55 - Completed getting new data of VGI
+2020-05-22 23:31:41,920 - INFO daily_update.py:76 - Ended updating VGI
+2020-05-22 23:31:41,921 - INFO worker.py:21 - (19, 'QCG')
+2020-05-22 23:31:41,921 - INFO daily_update.py:67 - Started updating QCG
+2020-05-22 23:31:41,921 - INFO daily_update.py:40 - Getting new data of QCG
+2020-05-22 23:32:57,666 - INFO daily_update.py:55 - Completed getting new data of QCG
+2020-05-22 23:32:57,720 - INFO daily_update.py:76 - Ended updating QCG
+2020-05-22 23:32:57,720 - INFO worker.py:21 - (20, 'TPB')
+2020-05-22 23:32:57,720 - INFO daily_update.py:67 - Started updating TPB
+2020-05-22 23:32:57,720 - INFO daily_update.py:40 - Getting new data of TPB
+2020-05-22 23:32:58,214 - INFO daily_update.py:55 - Completed getting new data of TPB
+2020-05-22 23:32:58,268 - INFO daily_update.py:76 - Ended updating TPB
+2020-05-22 23:32:58,268 - INFO worker.py:21 - (21, 'VIB')
+2020-05-22 23:32:58,268 - INFO daily_update.py:67 - Started updating VIB
+2020-05-22 23:32:58,268 - INFO daily_update.py:40 - Getting new data of VIB
+2020-05-22 23:32:58,781 - INFO daily_update.py:55 - Completed getting new data of VIB
+2020-05-22 23:32:58,829 - INFO daily_update.py:76 - Ended updating VIB
+2020-05-22 23:32:58,829 - INFO worker.py:21 - (22, 'NVB')
+2020-05-22 23:32:58,829 - INFO daily_update.py:67 - Started updating NVB
+2020-05-22 23:32:58,829 - INFO daily_update.py:40 - Getting new data of NVB
+2020-05-22 23:32:59,383 - INFO daily_update.py:55 - Completed getting new data of NVB
+2020-05-22 23:32:59,435 - INFO daily_update.py:76 - Ended updating NVB
+2020-05-22 23:32:59,435 - INFO worker.py:21 - (23, 'REE')
+2020-05-22 23:32:59,435 - INFO daily_update.py:67 - Started updating REE
+2020-05-22 23:32:59,435 - INFO daily_update.py:40 - Getting new data of REE
+2020-05-22 23:32:59,936 - INFO daily_update.py:55 - Completed getting new data of REE
+2020-05-22 23:32:59,991 - INFO daily_update.py:76 - Ended updating REE
+2020-05-22 23:32:59,991 - INFO worker.py:21 - (24, 'LMH')
+2020-05-22 23:32:59,991 - INFO daily_update.py:67 - Started updating LMH
+2020-05-22 23:32:59,991 - INFO daily_update.py:40 - Getting new data of LMH
+2020-05-22 23:33:00,472 - INFO daily_update.py:55 - Completed getting new data of LMH
+2020-05-22 23:33:00,504 - INFO daily_update.py:76 - Ended updating LMH
+2020-05-22 23:33:00,505 - INFO worker.py:21 - (25, 'HBC')
+2020-05-22 23:33:00,505 - INFO daily_update.py:67 - Started updating HBC
+2020-05-22 23:33:00,505 - INFO daily_update.py:40 - Getting new data of HBC
+2020-05-22 23:33:01,010 - INFO daily_update.py:55 - Completed getting new data of HBC
+2020-05-22 23:33:01,067 - INFO daily_update.py:76 - Ended updating HBC
+2020-05-22 23:33:01,067 - INFO worker.py:21 - (26, 'MSN')
+2020-05-22 23:33:01,067 - INFO daily_update.py:67 - Started updating MSN
+2020-05-22 23:33:01,067 - INFO daily_update.py:40 - Getting new data of MSN
+2020-05-22 23:33:01,596 - INFO daily_update.py:55 - Completed getting new data of MSN
+2020-05-22 23:33:01,648 - INFO daily_update.py:76 - Ended updating MSN
+2020-05-22 23:33:01,648 - INFO worker.py:21 - (27, 'VPB')
+2020-05-22 23:33:01,648 - INFO daily_update.py:67 - Started updating VPB
+2020-05-22 23:33:01,648 - INFO daily_update.py:40 - Getting new data of VPB
+2020-05-22 23:33:02,156 - INFO daily_update.py:55 - Completed getting new data of VPB
+2020-05-22 23:33:02,198 - INFO daily_update.py:76 - Ended updating VPB
+2020-05-22 23:33:02,198 - INFO worker.py:21 - (28, 'SBT')
+2020-05-22 23:33:02,198 - INFO daily_update.py:67 - Started updating SBT
+2020-05-22 23:33:02,199 - INFO daily_update.py:40 - Getting new data of SBT
+2020-05-22 23:33:02,704 - INFO daily_update.py:55 - Completed getting new data of SBT
+2020-05-22 23:33:02,758 - INFO daily_update.py:76 - Ended updating SBT
+2020-05-22 23:33:02,758 - INFO worker.py:21 - (29, 'POW')
+2020-05-22 23:33:02,758 - INFO daily_update.py:67 - Started updating POW
+2020-05-22 23:33:02,758 - INFO daily_update.py:40 - Getting new data of POW
+2020-05-22 23:33:03,238 - INFO daily_update.py:55 - Completed getting new data of POW
+2020-05-22 23:33:03,289 - INFO daily_update.py:76 - Ended updating POW
+2020-05-22 23:33:03,289 - INFO worker.py:21 - (30, 'DPM')
+2020-05-22 23:33:03,289 - INFO daily_update.py:67 - Started updating DPM
+2020-05-22 23:33:03,289 - INFO daily_update.py:40 - Getting new data of DPM
+2020-05-22 23:33:03,798 - INFO daily_update.py:55 - Completed getting new data of DPM
+2020-05-22 23:33:03,851 - INFO daily_update.py:76 - Ended updating DPM
+2020-05-22 23:33:03,851 - INFO worker.py:21 - (31, 'AAA')
+2020-05-22 23:33:03,851 - INFO daily_update.py:67 - Started updating AAA
+2020-05-22 23:33:03,851 - INFO daily_update.py:40 - Getting new data of AAA
+2020-05-22 23:33:05,429 - INFO daily_update.py:55 - Completed getting new data of AAA
+2020-05-22 23:33:05,482 - INFO daily_update.py:76 - Ended updating AAA
+2020-05-22 23:33:05,483 - INFO worker.py:21 - (32, 'PVT')
+2020-05-22 23:33:05,483 - INFO daily_update.py:67 - Started updating PVT
+2020-05-22 23:33:05,483 - INFO daily_update.py:40 - Getting new data of PVT
+2020-05-22 23:33:05,958 - INFO daily_update.py:55 - Completed getting new data of PVT
+2020-05-22 23:33:06,012 - INFO daily_update.py:76 - Ended updating PVT
+2020-05-22 23:33:06,012 - INFO worker.py:21 - (33, 'PLX')
+2020-05-22 23:33:06,013 - INFO daily_update.py:67 - Started updating PLX
+2020-05-22 23:33:06,013 - INFO daily_update.py:40 - Getting new data of PLX
+2020-05-22 23:33:06,514 - INFO daily_update.py:55 - Completed getting new data of PLX
+2020-05-22 23:33:06,562 - INFO daily_update.py:76 - Ended updating PLX
+2020-05-22 23:33:06,562 - INFO worker.py:21 - (34, 'MBB')
+2020-05-22 23:33:06,562 - INFO daily_update.py:67 - Started updating MBB
+2020-05-22 23:33:06,562 - INFO daily_update.py:40 - Getting new data of MBB
+2020-05-22 23:33:07,085 - INFO daily_update.py:55 - Completed getting new data of MBB
+2020-05-22 23:33:07,138 - INFO daily_update.py:76 - Ended updating MBB
+2020-05-22 23:33:07,138 - INFO worker.py:21 - (35, 'SHS')
+2020-05-22 23:33:07,138 - INFO daily_update.py:67 - Started updating SHS
+2020-05-22 23:33:07,138 - INFO daily_update.py:40 - Getting new data of SHS
+2020-05-22 23:33:07,611 - INFO daily_update.py:55 - Completed getting new data of SHS
+2020-05-22 23:33:07,666 - INFO daily_update.py:76 - Ended updating SHS
+2020-05-22 23:33:07,666 - INFO worker.py:21 - (36, 'HHS')
+2020-05-22 23:33:07,666 - INFO daily_update.py:67 - Started updating HHS
+2020-05-22 23:33:07,666 - INFO daily_update.py:40 - Getting new data of HHS
+2020-05-22 23:33:08,161 - INFO daily_update.py:55 - Completed getting new data of HHS
+2020-05-22 23:33:08,213 - INFO daily_update.py:76 - Ended updating HHS
+2020-05-22 23:33:08,213 - INFO worker.py:21 - (37, 'GAS')
+2020-05-22 23:33:08,213 - INFO daily_update.py:67 - Started updating GAS
+2020-05-22 23:33:08,213 - INFO daily_update.py:40 - Getting new data of GAS
+2020-05-22 23:34:23,981 - INFO daily_update.py:55 - Completed getting new data of GAS
+2020-05-22 23:34:24,034 - INFO daily_update.py:76 - Ended updating GAS
+2020-05-22 23:34:24,034 - INFO worker.py:21 - (38, 'BSR')
+2020-05-22 23:34:24,034 - INFO daily_update.py:67 - Started updating BSR
+2020-05-22 23:34:24,034 - INFO daily_update.py:40 - Getting new data of BSR
+2020-05-22 23:34:25,602 - INFO daily_update.py:55 - Completed getting new data of BSR
+2020-05-22 23:34:25,636 - INFO daily_update.py:76 - Ended updating BSR
+2020-05-22 23:34:25,637 - INFO worker.py:21 - (39, 'PVD')
+2020-05-22 23:34:25,638 - INFO daily_update.py:67 - Started updating PVD
+2020-05-22 23:34:25,638 - INFO daily_update.py:40 - Getting new data of PVD
+2020-05-22 23:34:26,180 - INFO daily_update.py:55 - Completed getting new data of PVD
+2020-05-22 23:34:26,234 - INFO daily_update.py:76 - Ended updating PVD
+2020-05-22 23:34:26,234 - INFO worker.py:21 - (40, 'PVS')
+2020-05-22 23:34:26,234 - INFO daily_update.py:67 - Started updating PVS
+2020-05-22 23:34:26,234 - INFO daily_update.py:40 - Getting new data of PVS
+2020-05-22 23:34:26,774 - INFO daily_update.py:55 - Completed getting new data of PVS
+2020-05-22 23:34:26,827 - INFO daily_update.py:76 - Ended updating PVS
+2020-05-22 23:34:26,827 - INFO worker.py:21 - (41, 'LDG')
+2020-05-22 23:34:26,828 - INFO daily_update.py:67 - Started updating LDG
+2020-05-22 23:34:26,828 - INFO daily_update.py:40 - Getting new data of LDG
+2020-05-22 23:34:27,324 - INFO daily_update.py:55 - Completed getting new data of LDG
+2020-05-22 23:34:27,379 - INFO daily_update.py:76 - Ended updating LDG
+2020-05-22 23:34:27,379 - INFO worker.py:21 - (42, 'ROS')
+2020-05-22 23:34:27,379 - INFO daily_update.py:67 - Started updating ROS
+2020-05-22 23:34:27,379 - INFO daily_update.py:40 - Getting new data of ROS
+2020-05-22 23:34:27,800 - INFO daily_update.py:55 - Completed getting new data of ROS
+2020-05-22 23:34:27,850 - INFO daily_update.py:76 - Ended updating ROS
+2020-05-22 23:34:27,850 - INFO worker.py:21 - (43, 'LPB')
+2020-05-22 23:34:27,851 - INFO daily_update.py:67 - Started updating LPB
+2020-05-22 23:34:27,851 - INFO daily_update.py:40 - Getting new data of LPB
+2020-05-22 23:34:28,300 - INFO daily_update.py:55 - Completed getting new data of LPB
+2020-05-22 23:34:28,339 - INFO daily_update.py:76 - Ended updating LPB
+2020-05-22 23:34:28,340 - INFO worker.py:21 - (44, 'DRC')
+2020-05-22 23:34:28,340 - INFO daily_update.py:67 - Started updating DRC
+2020-05-22 23:34:28,340 - INFO daily_update.py:40 - Getting new data of DRC
+2020-05-22 23:34:29,229 - INFO daily_update.py:55 - Completed getting new data of DRC
+2020-05-22 23:34:29,282 - INFO daily_update.py:76 - Ended updating DRC
+2020-05-22 23:34:29,282 - INFO worker.py:21 - (45, 'VND')
+2020-05-22 23:34:29,283 - INFO daily_update.py:67 - Started updating VND
+2020-05-22 23:34:29,283 - INFO daily_update.py:40 - Getting new data of VND
+2020-05-22 23:34:29,763 - INFO daily_update.py:55 - Completed getting new data of VND
+2020-05-22 23:34:29,816 - INFO daily_update.py:76 - Ended updating VND
+2020-05-22 23:34:29,816 - INFO worker.py:21 - (46, 'HDC')
+2020-05-22 23:34:29,816 - INFO daily_update.py:67 - Started updating HDC
+2020-05-22 23:34:29,816 - INFO daily_update.py:40 - Getting new data of HDC
+2020-05-22 23:34:31,032 - INFO daily_update.py:55 - Completed getting new data of HDC
+2020-05-22 23:34:31,086 - INFO daily_update.py:76 - Ended updating HDC
+2020-05-22 23:34:31,086 - INFO worker.py:21 - (47, 'MBG')
+2020-05-22 23:34:31,086 - INFO daily_update.py:67 - Started updating MBG
+2020-05-22 23:34:31,086 - INFO daily_update.py:40 - Getting new data of MBG
+2020-05-22 23:34:32,555 - INFO daily_update.py:55 - Completed getting new data of MBG
+2020-05-22 23:34:32,609 - INFO daily_update.py:76 - Ended updating MBG
+2020-05-22 23:34:32,609 - INFO worker.py:21 - (48, 'HQC')
+2020-05-22 23:34:32,609 - INFO daily_update.py:67 - Started updating HQC
+2020-05-22 23:34:32,609 - INFO daily_update.py:40 - Getting new data of HQC
+2020-05-22 23:34:33,108 - INFO daily_update.py:55 - Completed getting new data of HQC
+2020-05-22 23:34:33,161 - INFO daily_update.py:76 - Ended updating HQC
+2020-05-22 23:34:33,161 - INFO worker.py:21 - (49, 'HPG')
+2020-05-22 23:34:33,161 - INFO daily_update.py:67 - Started updating HPG
+2020-05-22 23:34:33,161 - INFO daily_update.py:40 - Getting new data of HPG
+2020-05-22 23:35:49,134 - INFO daily_update.py:55 - Completed getting new data of HPG
+2020-05-22 23:35:49,189 - INFO daily_update.py:76 - Ended updating HPG
+2020-05-22 23:35:49,189 - INFO worker.py:21 - (50, 'TNG')
+2020-05-22 23:35:49,189 - INFO daily_update.py:67 - Started updating TNG
+2020-05-22 23:35:49,189 - INFO daily_update.py:40 - Getting new data of TNG
+2020-05-22 23:35:49,647 - INFO daily_update.py:55 - Completed getting new data of TNG
+2020-05-22 23:35:49,703 - INFO daily_update.py:76 - Ended updating TNG
+2020-05-22 23:35:49,703 - INFO worker.py:21 - (51, 'MWG')
+2020-05-22 23:35:49,703 - INFO daily_update.py:67 - Started updating MWG
+2020-05-22 23:35:49,703 - INFO daily_update.py:40 - Getting new data of MWG
+2020-05-22 23:35:50,174 - INFO daily_update.py:55 - Completed getting new data of MWG
+2020-05-22 23:35:50,229 - INFO daily_update.py:76 - Ended updating MWG
+2020-05-22 23:35:50,230 - INFO worker.py:21 - (52, 'VCB')
+2020-05-22 23:35:50,230 - INFO daily_update.py:67 - Started updating VCB
+2020-05-22 23:35:50,230 - INFO daily_update.py:40 - Getting new data of VCB
+2020-05-22 23:35:50,741 - INFO daily_update.py:55 - Completed getting new data of VCB
+2020-05-22 23:35:50,792 - INFO daily_update.py:76 - Ended updating VCB
+2020-05-22 23:35:50,793 - INFO worker.py:21 - (53, 'HDB')
+2020-05-22 23:35:50,793 - INFO daily_update.py:67 - Started updating HDB
+2020-05-22 23:35:50,793 - INFO daily_update.py:40 - Getting new data of HDB
+2020-05-22 23:35:51,223 - INFO daily_update.py:55 - Completed getting new data of HDB
+2020-05-22 23:35:51,264 - INFO daily_update.py:76 - Ended updating HDB
+2020-05-22 23:35:51,264 - INFO worker.py:21 - (54, 'AMD')
+2020-05-22 23:35:51,264 - INFO daily_update.py:67 - Started updating AMD
+2020-05-22 23:35:51,264 - INFO daily_update.py:40 - Getting new data of AMD
+2020-05-22 23:35:51,784 - INFO daily_update.py:55 - Completed getting new data of AMD
+2020-05-22 23:35:51,836 - INFO daily_update.py:76 - Ended updating AMD
+2020-05-22 23:35:51,836 - INFO worker.py:21 - (55, 'CTD')
+2020-05-22 23:35:51,837 - INFO daily_update.py:67 - Started updating CTD
+2020-05-22 23:35:51,837 - INFO daily_update.py:40 - Getting new data of CTD
+2020-05-22 23:35:52,296 - INFO daily_update.py:55 - Completed getting new data of CTD
+2020-05-22 23:35:52,351 - INFO daily_update.py:76 - Ended updating CTD
+2020-05-22 23:35:52,351 - INFO worker.py:21 - (56, 'SSI')
+2020-05-22 23:35:52,351 - INFO daily_update.py:67 - Started updating SSI
+2020-05-22 23:35:52,351 - INFO daily_update.py:40 - Getting new data of SSI
+2020-05-22 23:35:52,810 - INFO daily_update.py:55 - Completed getting new data of SSI
+2020-05-22 23:35:52,862 - INFO daily_update.py:76 - Ended updating SSI
+2020-05-22 23:35:52,862 - INFO worker.py:21 - (57, 'TCB')
+2020-05-22 23:35:52,862 - INFO daily_update.py:67 - Started updating TCB
+2020-05-22 23:35:52,862 - INFO daily_update.py:40 - Getting new data of TCB
+2020-05-22 23:35:53,331 - INFO daily_update.py:55 - Completed getting new data of TCB
+2020-05-22 23:35:53,372 - INFO daily_update.py:76 - Ended updating TCB
+2020-05-22 23:35:53,372 - INFO worker.py:21 - (58, 'DGW')
+2020-05-22 23:35:53,372 - INFO daily_update.py:67 - Started updating DGW
+2020-05-22 23:35:53,372 - INFO daily_update.py:40 - Getting new data of DGW
+2020-05-22 23:35:53,853 - INFO daily_update.py:55 - Completed getting new data of DGW
+2020-05-22 23:35:53,906 - INFO daily_update.py:76 - Ended updating DGW
+2020-05-22 23:35:53,906 - INFO worker.py:21 - (59, 'FRT')
+2020-05-22 23:35:53,907 - INFO daily_update.py:67 - Started updating FRT
+2020-05-22 23:35:53,907 - INFO daily_update.py:40 - Getting new data of FRT
+2020-05-22 23:35:54,352 - INFO daily_update.py:55 - Completed getting new data of FRT
+2020-05-22 23:35:54,383 - INFO daily_update.py:76 - Ended updating FRT
+2020-05-22 23:35:54,383 - INFO worker.py:21 - (60, 'SHB')
+2020-05-22 23:35:54,383 - INFO daily_update.py:67 - Started updating SHB
+2020-05-22 23:35:54,383 - INFO daily_update.py:40 - Getting new data of SHB
+2020-05-22 23:35:54,847 - INFO daily_update.py:55 - Completed getting new data of SHB
+2020-05-22 23:35:54,900 - INFO daily_update.py:76 - Ended updating SHB
+2020-05-22 23:35:54,901 - INFO worker.py:21 - (61, 'CTG')
+2020-05-22 23:35:54,901 - INFO daily_update.py:67 - Started updating CTG
+2020-05-22 23:35:54,901 - INFO daily_update.py:40 - Getting new data of CTG
+2020-05-22 23:35:55,401 - INFO daily_update.py:55 - Completed getting new data of CTG
+2020-05-22 23:35:55,454 - INFO daily_update.py:76 - Ended updating CTG
+2020-05-22 23:35:55,454 - INFO worker.py:21 - (62, 'KBC')
+2020-05-22 23:35:55,454 - INFO daily_update.py:67 - Started updating KBC
+2020-05-22 23:35:55,454 - INFO daily_update.py:40 - Getting new data of KBC
+2020-05-22 23:35:55,941 - INFO daily_update.py:55 - Completed getting new data of KBC
+2020-05-22 23:35:55,993 - INFO daily_update.py:76 - Ended updating KBC
+2020-05-22 23:35:55,994 - INFO worker.py:21 - (63, 'GTN')
+2020-05-22 23:35:55,994 - INFO daily_update.py:67 - Started updating GTN
+2020-05-22 23:35:55,994 - INFO daily_update.py:40 - Getting new data of GTN
+2020-05-22 23:35:56,412 - INFO daily_update.py:55 - Completed getting new data of GTN
+2020-05-22 23:35:56,504 - INFO daily_update.py:76 - Ended updating GTN
+2020-05-22 23:35:56,504 - INFO worker.py:21 - (64, 'ITA')
+2020-05-22 23:35:56,504 - INFO daily_update.py:67 - Started updating ITA
+2020-05-22 23:35:56,504 - INFO daily_update.py:40 - Getting new data of ITA
+2020-05-22 23:35:56,999 - INFO daily_update.py:55 - Completed getting new data of ITA
+2020-05-22 23:35:57,062 - INFO daily_update.py:76 - Ended updating ITA
+2020-05-22 23:35:57,062 - INFO worker.py:21 - (65, 'TNI')
+2020-05-22 23:35:57,062 - INFO daily_update.py:67 - Started updating TNI
+2020-05-22 23:35:57,062 - INFO daily_update.py:40 - Getting new data of TNI
+2020-05-22 23:35:57,517 - INFO daily_update.py:55 - Completed getting new data of TNI
+2020-05-22 23:35:57,562 - INFO daily_update.py:76 - Ended updating TNI
+2020-05-22 23:35:57,562 - INFO worker.py:21 - (66, 'SJF')
+2020-05-22 23:35:57,562 - INFO daily_update.py:67 - Started updating SJF
+2020-05-22 23:35:57,562 - INFO daily_update.py:40 - Getting new data of SJF
+2020-05-22 23:35:58,004 - INFO daily_update.py:55 - Completed getting new data of SJF
+2020-05-22 23:35:58,045 - INFO daily_update.py:76 - Ended updating SJF
+2020-05-22 23:35:58,046 - INFO worker.py:21 - (67, 'DIG')
+2020-05-22 23:35:58,046 - INFO daily_update.py:67 - Started updating DIG
+2020-05-22 23:35:58,046 - INFO daily_update.py:40 - Getting new data of DIG
+2020-05-22 23:35:58,543 - INFO daily_update.py:55 - Completed getting new data of DIG
+2020-05-22 23:35:58,596 - INFO daily_update.py:76 - Ended updating DIG
+2020-05-22 23:35:58,596 - INFO worker.py:21 - (68, 'TTF')
+2020-05-22 23:35:58,596 - INFO daily_update.py:67 - Started updating TTF
+2020-05-22 23:35:58,596 - INFO daily_update.py:40 - Getting new data of TTF
+2020-05-22 23:35:59,058 - INFO daily_update.py:55 - Completed getting new data of TTF
+2020-05-22 23:35:59,110 - INFO daily_update.py:76 - Ended updating TTF
+2020-05-22 23:35:59,110 - INFO worker.py:21 - (69, 'KLF')
+2020-05-22 23:35:59,110 - INFO daily_update.py:67 - Started updating KLF
+2020-05-22 23:35:59,110 - INFO daily_update.py:40 - Getting new data of KLF
+2020-05-22 23:35:59,553 - INFO daily_update.py:55 - Completed getting new data of KLF
+2020-05-22 23:35:59,605 - INFO daily_update.py:76 - Ended updating KLF
+2020-05-22 23:35:59,605 - INFO worker.py:21 - (70, 'ACB')
+2020-05-22 23:35:59,605 - INFO daily_update.py:67 - Started updating ACB
+2020-05-22 23:35:59,605 - INFO daily_update.py:40 - Getting new data of ACB
+2020-05-22 23:36:00,126 - INFO daily_update.py:55 - Completed getting new data of ACB
+2020-05-22 23:36:00,178 - INFO daily_update.py:76 - Ended updating ACB
+2020-05-22 23:36:00,178 - INFO worker.py:21 - (71, 'TCM')
+2020-05-22 23:36:00,178 - INFO daily_update.py:67 - Started updating TCM
+2020-05-22 23:36:00,179 - INFO daily_update.py:40 - Getting new data of TCM
+2020-05-22 23:36:00,673 - INFO daily_update.py:55 - Completed getting new data of TCM
+2020-05-22 23:36:00,726 - INFO daily_update.py:76 - Ended updating TCM
+2020-05-22 23:36:00,726 - INFO worker.py:21 - (72, 'HSG')
+2020-05-22 23:36:00,726 - INFO daily_update.py:67 - Started updating HSG
+2020-05-22 23:36:00,726 - INFO daily_update.py:40 - Getting new data of HSG
+2020-05-22 23:36:01,240 - INFO daily_update.py:55 - Completed getting new data of HSG
+2020-05-22 23:36:01,292 - INFO daily_update.py:76 - Ended updating HSG
+2020-05-22 23:36:01,292 - INFO worker.py:21 - (73, 'NKG')
+2020-05-22 23:36:01,293 - INFO daily_update.py:67 - Started updating NKG
+2020-05-22 23:36:01,293 - INFO daily_update.py:40 - Getting new data of NKG
+2020-05-22 23:36:02,356 - INFO daily_update.py:55 - Completed getting new data of NKG
+2020-05-22 23:36:02,409 - INFO daily_update.py:76 - Ended updating NKG
+2020-05-22 23:36:02,409 - INFO worker.py:21 - (74, 'VNM')
+2020-05-22 23:36:02,409 - INFO daily_update.py:67 - Started updating VNM
+2020-05-22 23:36:02,409 - INFO daily_update.py:40 - Getting new data of VNM
+2020-05-22 23:36:02,912 - INFO daily_update.py:55 - Completed getting new data of VNM
+2020-05-22 23:36:02,963 - INFO daily_update.py:76 - Ended updating VNM
+2020-05-22 23:36:02,963 - INFO worker.py:21 - (75, 'TCH')
+2020-05-22 23:36:02,964 - INFO daily_update.py:67 - Started updating TCH
+2020-05-22 23:36:02,964 - INFO daily_update.py:40 - Getting new data of TCH
+2020-05-22 23:36:03,427 - INFO daily_update.py:55 - Completed getting new data of TCH
+2020-05-22 23:36:03,476 - INFO daily_update.py:76 - Ended updating TCH
+2020-05-22 23:36:03,476 - INFO worker.py:21 - (76, 'FIT')
+2020-05-22 23:36:03,476 - INFO daily_update.py:67 - Started updating FIT
+2020-05-22 23:36:03,476 - INFO daily_update.py:40 - Getting new data of FIT
+2020-05-22 23:36:03,972 - INFO daily_update.py:55 - Completed getting new data of FIT
+2020-05-22 23:36:04,025 - INFO daily_update.py:76 - Ended updating FIT
+2020-05-22 23:36:04,025 - INFO worker.py:21 - (77, 'PNJ')
+2020-05-22 23:36:04,025 - INFO daily_update.py:67 - Started updating PNJ
+2020-05-22 23:36:04,025 - INFO daily_update.py:40 - Getting new data of PNJ
+2020-05-22 23:36:04,512 - INFO daily_update.py:55 - Completed getting new data of PNJ
+2020-05-22 23:36:04,565 - INFO daily_update.py:76 - Ended updating PNJ
+2020-05-22 23:36:04,566 - INFO worker.py:21 - (78, 'TTB')
+2020-05-22 23:36:04,566 - INFO daily_update.py:67 - Started updating TTB
+2020-05-22 23:36:04,566 - INFO daily_update.py:40 - Getting new data of TTB
+2020-05-22 23:36:05,002 - INFO daily_update.py:55 - Completed getting new data of TTB
+2020-05-22 23:36:05,054 - INFO daily_update.py:76 - Ended updating TTB
+2020-05-22 23:36:05,054 - INFO worker.py:21 - (79, 'FPT')
+2020-05-22 23:36:05,055 - INFO daily_update.py:67 - Started updating FPT
+2020-05-22 23:36:05,055 - INFO daily_update.py:40 - Getting new data of FPT
+2020-05-22 23:36:05,525 - INFO daily_update.py:55 - Completed getting new data of FPT
+2020-05-22 23:36:05,583 - INFO daily_update.py:76 - Ended updating FPT
+2020-05-22 23:36:05,583 - INFO worker.py:21 - (80, 'DRH')
+2020-05-22 23:36:05,583 - INFO daily_update.py:67 - Started updating DRH
+2020-05-22 23:36:05,584 - INFO daily_update.py:40 - Getting new data of DRH
+2020-05-22 23:37:21,382 - INFO daily_update.py:55 - Completed getting new data of DRH
+2020-05-22 23:37:21,432 - INFO daily_update.py:76 - Ended updating DRH
+2020-05-22 23:37:21,433 - INFO worker.py:21 - (81, 'BID')
+2020-05-22 23:37:21,433 - INFO daily_update.py:67 - Started updating BID
+2020-05-22 23:37:21,433 - INFO daily_update.py:40 - Getting new data of BID
+2020-05-22 23:37:21,927 - INFO daily_update.py:55 - Completed getting new data of BID
+2020-05-22 23:37:21,979 - INFO daily_update.py:76 - Ended updating BID
+2020-05-22 23:37:21,980 - INFO worker.py:21 - (82, 'PVX')
+2020-05-22 23:37:21,980 - INFO daily_update.py:67 - Started updating PVX
+2020-05-22 23:37:21,980 - INFO daily_update.py:40 - Getting new data of PVX
+2020-05-22 23:37:22,483 - INFO daily_update.py:55 - Completed getting new data of PVX
+2020-05-22 23:37:22,538 - INFO daily_update.py:76 - Ended updating PVX
+2020-05-22 23:37:22,538 - INFO worker.py:21 - (83, 'NVL')
+2020-05-22 23:37:22,538 - INFO daily_update.py:67 - Started updating NVL
+2020-05-22 23:37:22,538 - INFO daily_update.py:40 - Getting new data of NVL
+2020-05-22 23:37:23,017 - INFO daily_update.py:55 - Completed getting new data of NVL
+2020-05-22 23:37:23,062 - INFO daily_update.py:76 - Ended updating NVL
+2020-05-22 23:37:23,062 - INFO worker.py:21 - (84, 'STB')
+2020-05-22 23:37:23,062 - INFO daily_update.py:67 - Started updating STB
+2020-05-22 23:37:23,062 - INFO daily_update.py:40 - Getting new data of STB
+2020-05-22 23:37:23,542 - INFO daily_update.py:55 - Completed getting new data of STB
+2020-05-22 23:37:23,594 - INFO daily_update.py:76 - Ended updating STB
+2020-05-22 23:37:23,594 - INFO worker.py:21 - (85, 'DBC')
+2020-05-22 23:37:23,594 - INFO daily_update.py:67 - Started updating DBC
+2020-05-22 23:37:23,594 - INFO daily_update.py:40 - Getting new data of DBC
+2020-05-22 23:37:24,040 - INFO daily_update.py:55 - Completed getting new data of DBC
+2020-05-22 23:37:24,059 - INFO daily_update.py:76 - Ended updating DBC
+2020-05-22 23:37:24,059 - INFO worker.py:21 - (86, 'TDH')
+2020-05-22 23:37:24,059 - INFO daily_update.py:67 - Started updating TDH
+2020-05-22 23:37:24,059 - INFO daily_update.py:40 - Getting new data of TDH
+2020-05-22 23:38:39,884 - INFO daily_update.py:55 - Completed getting new data of TDH
+2020-05-22 23:38:39,939 - INFO daily_update.py:76 - Ended updating TDH
+2020-05-22 23:38:39,939 - INFO worker.py:21 - (87, 'MST')
+2020-05-22 23:38:39,939 - INFO daily_update.py:67 - Started updating MST
+2020-05-22 23:38:39,939 - INFO daily_update.py:40 - Getting new data of MST
+2020-05-22 23:38:40,388 - INFO daily_update.py:55 - Completed getting new data of MST
+2020-05-22 23:38:40,454 - INFO daily_update.py:76 - Ended updating MST
+2020-05-22 23:38:40,455 - INFO worker.py:21 - (88, 'TSC')
+2020-05-22 23:38:40,455 - INFO daily_update.py:67 - Started updating TSC
+2020-05-22 23:38:40,455 - INFO daily_update.py:40 - Getting new data of TSC
+2020-05-22 23:38:40,984 - INFO daily_update.py:55 - Completed getting new data of TSC
+2020-05-22 23:38:41,046 - INFO daily_update.py:76 - Ended updating TSC
+2020-05-22 23:38:41,046 - INFO worker.py:21 - (89, 'VJC')
+2020-05-22 23:38:41,046 - INFO daily_update.py:67 - Started updating VJC
+2020-05-22 23:38:41,046 - INFO daily_update.py:40 - Getting new data of VJC
+2020-05-22 23:38:41,522 - INFO daily_update.py:55 - Completed getting new data of VJC
+2020-05-22 23:38:41,566 - INFO daily_update.py:76 - Ended updating VJC
+2020-05-22 23:38:41,566 - INFO worker.py:21 - (90, 'VRE')
+2020-05-22 23:38:41,567 - INFO daily_update.py:67 - Started updating VRE
+2020-05-22 23:38:41,567 - INFO daily_update.py:40 - Getting new data of VRE
+2020-05-22 23:38:42,086 - INFO daily_update.py:55 - Completed getting new data of VRE
+2020-05-22 23:38:42,150 - INFO daily_update.py:76 - Ended updating VRE
+2020-05-22 23:38:42,150 - INFO worker.py:21 - (91, 'ASM')
+2020-05-22 23:38:42,150 - INFO daily_update.py:67 - Started updating ASM
+2020-05-22 23:38:42,150 - INFO daily_update.py:40 - Getting new data of ASM
+2020-05-22 23:38:42,645 - INFO daily_update.py:55 - Completed getting new data of ASM
+2020-05-22 23:38:42,711 - INFO daily_update.py:76 - Ended updating ASM
+2020-05-22 23:38:42,711 - INFO worker.py:21 - (92, 'OIL')
+2020-05-22 23:38:42,711 - INFO daily_update.py:67 - Started updating OIL
+2020-05-22 23:38:42,711 - INFO daily_update.py:40 - Getting new data of OIL
+2020-05-22 23:38:43,392 - INFO daily_update.py:55 - Completed getting new data of OIL
+2020-05-22 23:38:43,444 - INFO daily_update.py:76 - Ended updating OIL
+2020-05-22 23:38:43,445 - INFO worker.py:21 - (93, 'IDI')
+2020-05-22 23:38:43,445 - INFO daily_update.py:67 - Started updating IDI
+2020-05-22 23:38:43,445 - INFO daily_update.py:40 - Getting new data of IDI
+2020-05-22 23:38:43,899 - INFO daily_update.py:55 - Completed getting new data of IDI
+2020-05-22 23:38:43,982 - INFO daily_update.py:76 - Ended updating IDI
+2020-05-22 23:38:43,982 - INFO worker.py:21 - (94, 'KSB')
+2020-05-22 23:38:43,982 - INFO daily_update.py:67 - Started updating KSB
+2020-05-22 23:38:43,983 - INFO daily_update.py:40 - Getting new data of KSB
+2020-05-22 23:38:44,448 - INFO daily_update.py:55 - Completed getting new data of KSB
+2020-05-22 23:38:44,530 - INFO daily_update.py:76 - Ended updating KSB
+2020-05-22 23:38:44,530 - INFO worker.py:21 - (95, 'HCM')
+2020-05-22 23:38:44,530 - INFO daily_update.py:67 - Started updating HCM
+2020-05-22 23:38:44,530 - INFO daily_update.py:40 - Getting new data of HCM
+2020-05-22 23:38:45,045 - INFO daily_update.py:55 - Completed getting new data of HCM
+2020-05-22 23:38:45,102 - INFO daily_update.py:76 - Ended updating HCM
+2020-05-22 23:38:45,102 - INFO worker.py:21 - (96, 'HAR')
+2020-05-22 23:38:45,103 - INFO daily_update.py:67 - Started updating HAR
+2020-05-22 23:38:45,103 - INFO daily_update.py:40 - Getting new data of HAR
+2020-05-22 23:38:45,563 - INFO daily_update.py:55 - Completed getting new data of HAR
+2020-05-22 23:38:45,623 - INFO daily_update.py:76 - Ended updating HAR
+2020-05-22 23:38:45,623 - INFO worker.py:21 - (97, 'OGC')
+2020-05-22 23:38:45,623 - INFO daily_update.py:67 - Started updating OGC
+2020-05-22 23:38:45,624 - INFO daily_update.py:40 - Getting new data of OGC
+2020-05-22 23:40:01,390 - INFO daily_update.py:55 - Completed getting new data of OGC
+2020-05-22 23:40:01,443 - INFO daily_update.py:76 - Ended updating OGC
+2020-05-22 23:40:01,443 - INFO worker.py:21 - (98, 'EIB')
+2020-05-22 23:40:01,444 - INFO daily_update.py:67 - Started updating EIB
+2020-05-22 23:40:01,444 - INFO daily_update.py:40 - Getting new data of EIB
+2020-05-22 23:40:02,076 - INFO daily_update.py:55 - Completed getting new data of EIB
+2020-05-22 23:40:02,124 - INFO daily_update.py:76 - Ended updating EIB
+2020-05-22 23:40:02,124 - INFO worker.py:21 - (99, 'NLG')
+2020-05-22 23:40:02,124 - INFO daily_update.py:67 - Started updating NLG
+2020-05-22 23:40:02,124 - INFO daily_update.py:40 - Getting new data of NLG
+2020-05-22 23:40:02,699 - INFO daily_update.py:55 - Completed getting new data of NLG
+2020-05-22 23:40:02,752 - INFO daily_update.py:76 - Ended updating NLG
+2020-05-22 23:40:02,753 - INFO worker.py:21 - (100, 'VHM')
+2020-05-22 23:40:02,753 - INFO daily_update.py:67 - Started updating VHM
+2020-05-22 23:40:02,753 - INFO daily_update.py:40 - Getting new data of VHM
+2020-05-22 23:40:04,247 - INFO daily_update.py:55 - Completed getting new data of VHM
+2020-05-22 23:40:04,281 - INFO daily_update.py:76 - Ended updating VHM
+2020-05-22 23:40:04,282 - INFO worker.py:21 - (101, 'HUT')
+2020-05-22 23:40:04,282 - INFO daily_update.py:67 - Started updating HUT
+2020-05-22 23:40:04,282 - INFO daily_update.py:40 - Getting new data of HUT
+2020-05-22 23:40:04,915 - INFO daily_update.py:55 - Completed getting new data of HUT
+2020-05-22 23:40:04,969 - INFO daily_update.py:76 - Ended updating HUT
+2020-05-22 23:40:04,970 - INFO worker.py:21 - (102, 'HVN')
+2020-05-22 23:40:04,970 - INFO daily_update.py:67 - Started updating HVN
+2020-05-22 23:40:04,970 - INFO daily_update.py:40 - Getting new data of HVN
+2020-05-22 23:41:20,710 - INFO daily_update.py:55 - Completed getting new data of HVN
+2020-05-22 23:41:20,754 - INFO daily_update.py:76 - Ended updating HVN
+2020-05-22 23:41:20,754 - INFO worker.py:21 - (103, 'APG')
+2020-05-22 23:41:20,754 - INFO daily_update.py:67 - Started updating APG
+2020-05-22 23:41:20,754 - INFO daily_update.py:40 - Getting new data of APG
+2020-05-22 23:41:21,238 - INFO daily_update.py:55 - Completed getting new data of APG
+2020-05-22 23:41:21,284 - INFO daily_update.py:76 - Ended updating APG
+2020-05-22 23:41:21,284 - INFO worker.py:21 - (104, 'HAG')
+2020-05-22 23:41:21,284 - INFO daily_update.py:67 - Started updating HAG
+2020-05-22 23:41:21,284 - INFO daily_update.py:40 - Getting new data of HAG
+2020-05-22 23:41:21,842 - INFO daily_update.py:55 - Completed getting new data of HAG
+2020-05-22 23:41:21,896 - INFO daily_update.py:76 - Ended updating HAG
+2020-05-22 23:41:21,896 - INFO worker.py:25 - Ended updating on 2020-05-22
+2020-05-22 23:41:21,896 - INFO worker.py:29 - Started copying historical data on 2020-05-22
+2020-05-22 23:41:22,075 - INFO worker.py:37 - Ended copying historical data on 2020-05-22

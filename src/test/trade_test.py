@@ -180,6 +180,8 @@ def clearReports():
     clearFileContent('./reports/trade_report.csv')
     clearFileContent('./reports/portfolio.csv')
     clearFileContent('./reports/portfolio.csv')
+    df = pd.read_csv("./reports/waiting_list.csv", index_col="Stock")
+    df.iloc[0:0].to_csv('./reports/waiting_list.csv')
 
 clearReports()
 

@@ -23,4 +23,16 @@ a. Using MA3_8
         Command: python3 src/test/rec_test.py
         It will update the rec report and historical data 
     
+    HappyRec will update historical, rec.csv, trends.csv and trending.csv.
+    If there is a problem, might need to run rec_test again to rebuild recommendation from the beginning
+    
+4. HappyLight
+    Send recommendation email
+    Command: python3 src/happy/light_house.py or HappyLight
+    Run: Daily at 9.15
 
+5. Reporter
+    After buy or sell in the morning, reporter will update portfolio and send email
+    Command: python3 src/happy/reporter or happyreporter
+    Note: Run only one time, if not, it will update real_portfolio twice
+     

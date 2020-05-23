@@ -14,8 +14,6 @@ dates = pd.date_range(start, end).tolist()
 
 
 def clearReports():
-    df = pd.read_csv("./reports/waiting_list.csv", index_col="Stock")
-    df.iloc[0:0].to_csv('./reports/waiting_list.csv')
     df = pd.read_csv("./reports/rec.csv", index_col="Date")
     df.iloc[0:0].to_csv('./reports/rec.csv')
     df = pd.read_csv("./reports/trending.csv", index_col="Stock")
