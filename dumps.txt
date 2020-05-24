@@ -53,3 +53,6 @@ alias happyworker='python3 src/happy/worker.py'
 alias happyscanner='python3 src/happy/scanner.py'
 alias happyseller='python3 src/happy/seller.py'
 alias happyinvestor='python3 src/happy/investor.py'
+
+
+Filter GVR

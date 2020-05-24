@@ -39,7 +39,7 @@ def convert(rawData, historicalData, d3Data):
         df.set_index("Date", inplace=True)
         calculateMAs(df)
         df["Change"] = round(abs(df.Close - df.Open)/df.Open * 100, 2)
-        df = df[["Close", "Open", "High", "Low", "Change", "Volume", "MA3", "MA8", "MA20", "MA3_8", "MA3_20", "MA8_20"]]
+        df = df[["Close", "Open", "High", "Low", "Change", "Volume", "MA3", "MA8", "MA20", "MA3_8", "MA3_20", "MA8_20", "Yellow", "Red", "Blue"]]
         # Generate ascending data for D3
         # df.sort_index(ascending=True, inplace=True)
         df.to_csv(d3Data + f)

@@ -91,6 +91,9 @@ def calculateMAs(df):
     df['MA3_8'] = df.MA8 - df.MA3
     df['MA3_20'] = df.MA20 - df.MA3
     df['MA8_20'] = df.MA20 - df.MA8
+    df['Yellow'] = df.Close.rolling(3).mean()
+    df['Red'] = df.Open.rolling(3).mean()
+    df['Blue'] = df.Close.rolling(8).mean()
 
 def sendEmail(message):
     try:
