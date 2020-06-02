@@ -8,9 +8,9 @@ import pandas as pd
 import math
 pd.options.mode.chained_assignment = None 
 start = "2020-01-01"
-# start = '2019-01-01'
+# start = '2020-03-04'
 end = datetime.today().strftime("%Y-%m-%d")
-end = '2020-05-22'
+# end = '2020-03-11'
 dates = pd.date_range(start, end).tolist()
 
 rec = readFile('./reports/yrb_rec.csv')
@@ -26,16 +26,26 @@ def getBuyPrice(stock, date):
     tradeData = recentData.iloc[[-1]]
     return tradeData.Close[0]
 
-def getSellPrice(stock, date):
+def isRed(stock, date):
     historicalData = readFile('./data/historical/{}.csv'.format(stock))
     recentData = historicalData.loc[:date]
     if len(recentData) < 1:
         return 0
     tradeData = recentData.iloc[[-1]]
-    if price==0:
-        return tradeData.Close[0]
-    else:
-        return tradeData.Open[0]
+    notRecentData = historicalData.loc[date:]
+    if len(notRecentData)==0:
+        return True
+    previousDay = notRecentData.iloc[[1]]
+    # print("{} {} {} {}".format(tradeData.Close[0], tradeData.Open[0], previousDay.Close[0], previousDay.Open[0]))
+    return tradeData.Close[0] <= tradeData.Open[0] or previousDay.Close[0] <= previousDay.Open[0]
+
+def getSellPrice(stock, date):
+    historicalData = readFile('./data/historical/{}.csv'.format(stock))
+    recentData = historicalData.loc[:date]
+    if len(recentData) < 2:
+        return 0
+    tradeData = recentData.iloc[[-1]]
+    return tradeData.Close[0]
 
 def isHoliday(tradeDate):
     holidays = pd.read_csv("./data/exceptions/holidays.csv")
@@ -48,7 +58,8 @@ def sell(date, tradeList, budget):
         portfolio.TD.iloc[i] = portfolio.iloc[i].TD + 1
         if int(portfolio.iloc[i].TD) < days:
             continue
-        boughtPrice = int(portfolio.Price.iloc[i])
+        # print(portfolio)
+        boughtPrice = portfolio.Price.iloc[i]
         stock = portfolio.Stock.iloc[i]
         tradePrice = getSellPrice(stock, date)
         volume = portfolio.Volume.iloc[i]
@@ -84,18 +95,28 @@ def getVolume(tradePrice):
     return stockVolume
 
 def buy(date, buyList, tradeList, budget):
+    # print(pd.Timestamp(str(date)[0:10]).dayofweek)
+    # if pd.Timestamp(str(date)[0:10]).dayofweek >= 2:
+    #     return budget
     portfolio = readReport('./reports/yrb_portfolio.csv')
     newPortfolio = []
-    watchingStocks = ['VCB', 'BID', 'VIC'] # 
+    watchingStocks = ["BID","BVH","CTD","CTG","EIB","FPT","HDB","HPG","MBB","MSN","MWG","PLX","PNJ","POW","REE","ROS","SAB","SBT","SSI","STB","TCB","VCB","VHM","VIC","VJC","VNM","VPB","VRE","ACB","SHB","TPB"] # 
+    watchingStocks = ['SCR']
     for stock in buyList:
         # if stock not in watchingStocks:
         #     continue
         if stock in portfolio.Stock:
             continue
         tradePrice = getBuyPrice(stock, date)
+        if tradePrice <= 5:
+            continue
         if isHoliday(date):
             return budget
         stockVolume = getVolume(tradePrice)
+        if stockVolume == 0:
+            continue
+        if isRed(stock, date):
+            continue
         value = stockVolume * tradePrice
         tradeFee = round(value * 0.0025, 3)
         date = str(date)[0:10]
@@ -141,7 +162,8 @@ def clearReports():
 clearReports()
 budget = 0
 vcb = readFile('./data/historical/vcb.csv')
-vcbSub = vcb.loc['2020']
+# vcbSub = vcb.loc[end:start]
+vcbSub = vcb.loc[end:start]
 for i in reversed(range(len(vcbSub))):
     date = vcbSub.index.values[i]
     print(date)
@@ -177,4 +199,5 @@ today = datetime.today().strftime("%Y-%m-%d")
 dfReport = pd.DataFrame.from_dict({"Keyds": keys, "Values": values})
 print(dfReport)
 
-dfReport.to_csv('./reports/test/{}_{}days_sell_{}_YellowBlue_Week.csv'.format(today, days, price))
+
+dfReport.to_csv('./reports/test/{}_2019_{}days_sell_{}_YellowBlue_Week.csv'.format(today, days, price))

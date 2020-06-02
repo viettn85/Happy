@@ -1,0 +1,1 @@
+Update all stocs: python3 src/test/update_all.py 

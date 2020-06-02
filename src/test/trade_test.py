@@ -8,9 +8,9 @@ import pandas as pd
 import math
 # pd.options.mode.chained_assignment = None 
 
-start = '2019-01-01'
-# end = datetime.today().strftime("%Y-%m-%d")
-end = '2019-12-31'
+start = '2020-01-01'
+end = datetime.today().strftime("%Y-%m-%d")
+# end = '2019-12-31'
 dates = pd.date_range(start, end).tolist()
 
 rec = readFile('./reports/rec.csv')
@@ -183,30 +183,32 @@ def clearReports():
     df = pd.read_csv("./reports/waiting_list.csv", index_col="Stock")
     df.iloc[0:0].to_csv('./reports/waiting_list.csv')
 
-clearReports()
+# clearReports()
 
-for date in dates:
-    print(date)
-    tradeList = []
-    dfTrade = readReport('./reports/trade_report.csv')
-    portfolio = readReport('./reports/portfolio.csv')
-    sellWaitingList(date, portfolio, budget)
-    if isinstance(rec.loc[date].Sell, str):
-        (portfolio, budget) = sell(date, rec.loc[date].Sell.split('|'), tradeList, portfolio, budget)
-    if isinstance(rec.loc[date].Buy, str):
-        (portfolio, budget) = buy(date, rec.loc[date].Buy.split('|'), tradeList, portfolio, budget)
-    if len(tradeList) == 0:
-        continue
-    dfTrade = dfTrade.append(pd.DataFrame(tradeList).set_index("ID"))
-    # print(dfTrade)
-    dfTrade.to_csv('./reports/trade_report.csv')
-    portfolio.to_csv('./reports/portfolio.csv')
+# for date in dates:
+#     print(date)
+#     tradeList = []
+#     dfTrade = readReport('./reports/trade_report.csv')
+#     portfolio = readReport('./reports/portfolio.csv')
+#     sellWaitingList(date, portfolio, budget)
+#     if isinstance(rec.loc[date].Sell, str):
+#         (portfolio, budget) = sell(date, rec.loc[date].Sell.split('|'), tradeList, portfolio, budget)
+#     if isinstance(rec.loc[date].Buy, str):
+#         (portfolio, budget) = buy(date, rec.loc[date].Buy.split('|'), tradeList, portfolio, budget)
+#     if len(tradeList) == 0:
+#         continue
+#     dfTrade = dfTrade.append(pd.DataFrame(tradeList).set_index("ID"))
+#     # print(dfTrade)
+#     dfTrade.to_csv('./reports/trade_report.csv')
+#     portfolio.to_csv('./reports/portfolio.csv')
 
 
 dfTrade = readReport('./reports/trade_report.csv')
 portfolio = readReport('./reports/portfolio.csv')
 
 print("Start 30000")
-print("No of Trades {}".format(len(dfTrade)))
+print("No of Trades {} {}".format(len(dfTrade), dfTrade.Profit.sum()))
+print("{} {}".format(len(dfTrade[(dfTrade.Action == "Sell") & (dfTrade.Profit <= 0)]), \
+    len(dfTrade[(dfTrade.Action == "Sell") & (dfTrade.Profit > 0)])))
 print(dfTrade.iloc[-1].InvestingAmount, portfolio.Value.sum())
 print("End {}".format(round(dfTrade.iloc[-1].InvestingAmount + portfolio.Value.sum(),3)))

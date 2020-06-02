@@ -62,37 +62,48 @@ def extractPrice(data):
         "Low": int(prices[23])
     }
 
-def getSecurityList(stocks):
-    try:
-        logger.info("Requesting to get stock prices")
-        URL = parser.get('mbs', 'securityList')
-        # Params
-        pKeyAuthenticate = parser.get('mbs', 'pKeyAuthenticate')
-        pMainAccount = parser.get('mbs', 'pMainAccount')
-        pTradingCenter = parser.get('mbs', 'pTradingCenter')
-        _ = parser.get('mbs', '_')
-        PARAMS = {
-                    'pKeyAuthenticate':pKeyAuthenticate,
-                    'pMainAccount': pMainAccount,
-                    'pListShare': stocks,
-                    'pTradingCenter': pTradingCenter,
-                    '_': _
-                } 
-        content = str(requests.get(url=URL, params=PARAMS).content)
-        details = content.split("|")[3]
-        securities = details.split("#")
-        securityDetails = []
-        logger.info("Extracting stock prices")
-        for security in securities:
-            securityDetails.append(extractPrice(security))
-        df = pd.DataFrame(securityDetails)
-        logger.info("Completed the request to get stock prices")
-        return df
-    except Exception as ex:
-        logger.exception(ex)
-        logging.debug("Exception when getting stock prices")
-        logging.debug(ex)
-        return 0
+def getSecurityList(allStocks):
+    noStockPerRequest = 40
+    stockList = allStocks.split(',')
+    count = int(len(stockList) / noStockPerRequest) + 1
+    priceDf = pd.DataFrame([])
+    for i in range(count):
+        subList = stockList[i * noStockPerRequest: (i+1) * noStockPerRequest]
+        if len(subList) == 0:
+            continue
+        stocks = ','.join(subList)
+        df = pd.DataFrame([])
+        try:
+            logger.info("Requesting to get stock prices")
+            logger.info(stocks)
+            URL = parser.get('mbs', 'securityList')
+            # Params
+            pKeyAuthenticate = parser.get('mbs', 'pKeyAuthenticate')
+            pMainAccount = parser.get('mbs', 'pMainAccount')
+            pTradingCenter = parser.get('mbs', 'pTradingCenter')
+            _ = parser.get('mbs', '_')
+            PARAMS = {
+                        'pKeyAuthenticate':pKeyAuthenticate,
+                        'pMainAccount': pMainAccount,
+                        'pListShare': stocks,
+                        'pTradingCenter': pTradingCenter,
+                        '_': _
+                    } 
+            content = str(requests.get(url=URL, params=PARAMS).content)
+            details = content.split("|")[3]
+            securities = details.split("#")
+            securityDetails = []
+            logger.info("Extracting stock prices")
+            for security in securities:
+                securityDetails.append(extractPrice(security))
+            df = pd.DataFrame(securityDetails)
+            logger.info("Completed the request to get stock prices")
+        except Exception as ex:
+            logger.exception(ex)
+            logging.debug("Exception when getting stock prices")
+            logging.debug(ex)
+        priceDf = priceDf.append(df)
+    return priceDf
 
 def orderBuy(stock, price, volume):
     try:
@@ -206,5 +217,5 @@ def buy(stockList):
             orderBuy(stock, price, volume)
 
 if __name__ == '__main__':
-    print(getSecurityList('VCB,BID'))
+    print(getSecurityList('VCB,BID,TCB,EIB,VNM,VIC,VHM,DIG'))
     # print(getOrders())

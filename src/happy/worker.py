@@ -19,7 +19,7 @@ def updateDaily(date):
     for i, csv in enumerate(csvFiles):
         try:
             logger.info((i, csv[0:3]))
-            Crawl(csv[0:3]).run()
+            Crawl(csv[0:3], './data/historical/').run()
         except Exception as e:
             logger.error(e)
     logger.info("Ended updating on {}".format(date))

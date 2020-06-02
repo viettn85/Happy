@@ -18,6 +18,7 @@ def updatePortfolio(df):
     logger.info("Started updating portfolio on {}".format(today))
     portfolio = readReport('./reports/real_portfolio.csv')
     orders = []
+    df = df[df.Status == 'PM']
     for i in range(len(df)):
         order = df.iloc[i]
         orders.append({
@@ -32,16 +33,15 @@ def updatePortfolio(df):
         })
     newPortfolio = pd.DataFrame(orders)
     newPortfolio.set_index("ID", inplace=True)
+    generateMessage(newPortfolio)
     portfolio = portfolio.append(newPortfolio)
     portfolio.to_csv("./reports/real_portfolio.csv")
     logger.info("Ended updating portfolio on {}".format(today))
 
-def generateMessage():
-    portfolio = readReport('./reports/real_portfolio.csv')
+def generateMessage(portfolio):
     orders = []
     for i in range(len(portfolio)):
         order = portfolio.iloc[i]
-        # print(order)
         orders.append('{} {} {} with price {} value {}'\
             .format(order.Type, order.Volume, order.Stock, order.Price, order.Price * order.Volume))
     details = "\n".join(orders)
@@ -59,4 +59,4 @@ Happy Trading!""".format(today, details)
 if __name__ == '__main__':
     df = getOrders()
     updatePortfolio(df)
-    generateMessage()
+

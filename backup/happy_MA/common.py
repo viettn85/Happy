@@ -55,7 +55,7 @@ def preproceed(location, d3Data):
         df.sort_index(ascending=True, inplace=True)
         calculateMAs(df)
         df.sort_index(ascending=False, inplace=True)
-        df["Change"] = round(abs(df.Close - df.Open)/df.Open * 100, 2)
+        # df["Change"] = round(abs(df.Close - df.Open)/df.Open * 100, 2)
         df = df[["Close", "Open", "High", "Low", "Change", "Volume", "MA3", "MA8", "MA20", "MA3_8", "MA3_20", "MA8_20"]]
         df.to_csv(location + f)
         df.sort_index(ascending=True, inplace=True)

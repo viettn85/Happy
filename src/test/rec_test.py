@@ -6,10 +6,10 @@ from datetime import datetime
 import pandas as pd
 from common import readReport, readFile
 
-start = '2019-01-01'
+start = '2020-01-01'
 # start = '2019-07-26'
 end = datetime.today().strftime("%Y-%m-%d")
-# end = '2019-07-27'
+# end = '2020-03-'
 dates = pd.date_range(start, end).tolist()
 
 
@@ -37,6 +37,6 @@ def testYRBRecommendation():
         date = vcbSub.index.values[i]
         recommendYellowRedBlue(str(date)[0:10])
 
-# testMARecommendation()
-testYRBRecommendation()
+testMARecommendation()
+# testYRBRecommendation()
 

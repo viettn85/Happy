@@ -45,7 +45,7 @@ def preproceed(location, d3Data):
         df['Date'] = pd.to_datetime(df['Date'])
         df.set_index("Date", inplace=True)
         df.sort_index(ascending=False, inplace=True)
-        df["Change"] = round(abs(df.Close - df.Open)/df.Open * 100, 2)
+        # df["Change"] = round(abs(df.Close - df.Open)/df.Open * 100, 2)
         df = df[["Close", "Open", "High", "Low", "Change", "Volume"]]
         df.to_csv(location + f)
         df.sort_index(ascending=True, inplace=True)

@@ -10,14 +10,14 @@ from mbs import getSecurityList
 from utils import calculateMAs
 
 pd.options.mode.chained_assignment = None 
-logging.config.fileConfig(fname='log.conf', disable_existing_loggers=False)
+logging.config.fileConfig(fname='daily_log.conf', disable_existing_loggers=False)
 logger = logging.getLogger()
 today = datetime.today().strftime("%Y-%m-%d")
 
 def updatePrices():
-    portfolio = readReport('./reports/real_portfolio.csv')
-    interestedList = ['ITA','FPT','HVN','PVB','HAG','PVS','PVT','POW','HSG']
-    stocks = ",".join(list(portfolio.Stock.values) + interestedList)
+    csvFiles = getCsvFiles("./data/daily/")
+    stocks = ",".join(csvFiles)
+    stocks = stocks.replace(".csv", "")
     df = getSecurityList(stocks)
     for i in range(len(df)):
         detail = df.iloc[i]
@@ -45,6 +45,10 @@ def updatePrices():
         currentDf['Date'] = pd.to_datetime(currentDf['Date'])
         currentDf.set_index('Date', inplace=True)
         dailyDf = readFile('./data/daily/{}.csv'.format(detail.Stock))
+        try:
+            dailyDf.drop(datetime.strptime(today, '%Y-%m-%d'), inplace=True)
+        except:
+            logger.info("First time update on {}".format(today))
         dailyDf = currentDf.append(dailyDf)
         dailyDf.sort_index(ascending=True,inplace=True)
         # print(detail.Stock)
