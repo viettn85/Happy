@@ -1,7 +1,7 @@
 import sys
 sys.path.insert(1, '/Users/viet_tran/Workplace/Practice/Happy/src/happy')
 
-from recommender import recommendMA, recommendYellowRedBlue
+from recommender import recommendMA, recommendYellowRedBlue2
 from datetime import datetime
 import pandas as pd
 from common import readReport, readFile
@@ -35,7 +35,7 @@ def testYRBRecommendation():
     vcbSub = vcb.loc[end:start]
     for i in reversed(range(len(vcbSub))):
         date = vcbSub.index.values[i]
-        recommendYellowRedBlue(str(date)[0:10])
+        recommendYellowRedBlue2(str(date)[0:10])
 
 testMARecommendation()
 # testYRBRecommendation()

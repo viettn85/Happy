@@ -183,24 +183,24 @@ def clearReports():
     df = pd.read_csv("./reports/waiting_list.csv", index_col="Stock")
     df.iloc[0:0].to_csv('./reports/waiting_list.csv')
 
-# clearReports()
+clearReports()
 
-# for date in dates:
-#     print(date)
-#     tradeList = []
-#     dfTrade = readReport('./reports/trade_report.csv')
-#     portfolio = readReport('./reports/portfolio.csv')
-#     sellWaitingList(date, portfolio, budget)
-#     if isinstance(rec.loc[date].Sell, str):
-#         (portfolio, budget) = sell(date, rec.loc[date].Sell.split('|'), tradeList, portfolio, budget)
-#     if isinstance(rec.loc[date].Buy, str):
-#         (portfolio, budget) = buy(date, rec.loc[date].Buy.split('|'), tradeList, portfolio, budget)
-#     if len(tradeList) == 0:
-#         continue
-#     dfTrade = dfTrade.append(pd.DataFrame(tradeList).set_index("ID"))
-#     # print(dfTrade)
-#     dfTrade.to_csv('./reports/trade_report.csv')
-#     portfolio.to_csv('./reports/portfolio.csv')
+for date in dates:
+    print(date)
+    tradeList = []
+    dfTrade = readReport('./reports/trade_report.csv')
+    portfolio = readReport('./reports/portfolio.csv')
+    sellWaitingList(date, portfolio, budget)
+    if isinstance(rec.loc[date].Sell, str):
+        (portfolio, budget) = sell(date, rec.loc[date].Sell.split('|'), tradeList, portfolio, budget)
+    if isinstance(rec.loc[date].Buy, str):
+        (portfolio, budget) = buy(date, rec.loc[date].Buy.split('|'), tradeList, portfolio, budget)
+    if len(tradeList) == 0:
+        continue
+    dfTrade = dfTrade.append(pd.DataFrame(tradeList).set_index("ID"))
+    # print(dfTrade)
+    dfTrade.to_csv('./reports/trade_report.csv')
+    portfolio.to_csv('./reports/portfolio.csv')
 
 
 dfTrade = readReport('./reports/trade_report.csv')

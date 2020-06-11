@@ -306,8 +306,53 @@ def recommendYellowRedBlue(date):
     rec.to_csv('./reports/yrb_rec.csv')
     logger.info("Ended recommendation process on {}".format(date))
 
+def recommendYellowRedBlue2(date):
+    logger.info("Started recommendation process on {}".format(date))
+    csvFiles = getCsvFiles("./data/historical/")
+    # csvFiles = ['KSB.csv'] # ,'BID.csv',,'MWG.csv'
+    sell = []
+    buy = []
+    buyMore = []
+    mustSell = pd.read_csv('./data/exceptions/must_sell.csv')
+    trends = readReport('./reports/trends.csv')
+    for f in csvFiles:
+        stock = f[0:3]
+        # print(stock)
+        df = readFile(("./data/historical/" + f))
+        # print(stock)
+        positions = df.index.get_loc(str(date))
+        if len(positions) == 0:
+            continue
+        position = positions[0]
+        if position == len(df) - 1:
+            continue
+        currentRow = df.iloc[position]
+        previousRow = df.iloc[position + 1]
+        if date in mustSell.Date.values:
+            sell.append(stock)
+            df.Recommendation.iloc[position] = "Sell"
+        recommendation = ""
+        # print(stock)
+        # print(df.iloc[position + 1].MA3, df.iloc[position].MA3)
+        # print(df.iloc[position + 1].MA8, df.iloc[position].MA8)
+        # print(df.iloc[position + 1].MA3_8, df.iloc[position].MA3_8)
+        if currentRow.Yellow > currentRow.Red and currentRow.Red > previousRow.Red \
+                    and previousRow.Red > previousRow.Yellow and currentRow.Blue > previousRow.Blue:
+            recommendation = "Buy"
+            buy.append(stock)
+            updateTrendingReport("bought", stock)
+        df.Recommendation.iloc[position] = recommendation
+        df.to_csv("./data/historical/" + f)
+    # Update REC reports
+    trends.to_csv('./reports/yrb_trends.csv')
+    rec = readFile("./reports/yrb_rec.csv")
+    rec.loc[datetime.strptime(date, "%Y-%m-%d")] = ['|'.join(sell), '|'.join(buy), '|'.join(buyMore)]
+    rec.sort_index(ascending=False, inplace=True)
+    rec.to_csv('./reports/yrb_rec.csv')
+    logger.info("Ended recommendation process on {}".format(date))
+
 if __name__ == '__main__':
-    date = "2020-05-22"
+    # date = "2020-05-"
     date = datetime.today().strftime("%Y-%m-%d")
     if len(sys.argv) > 1:
         recommendMADaily(date)
